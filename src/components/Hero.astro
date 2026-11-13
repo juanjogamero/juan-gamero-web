@@ -1,58 +1,211 @@
 ---
-// src/components/Hero.astro
-import fondoHero from '../assets/hero_metalica.png';
+const slides = [
+  {
+    name: 'Puertas de hierro',
+    title: 'Puertas de hierro a medida',
+    detail: 'Puertas metálicas para patios, cocheras y entradas. Adaptadas al hueco y al uso que necesitas.',
+    image: 'https://images.unsplash.com/photo-1761347604157-3d667ff62778?auto=format&fit=crop&w=1800&q=78'
+  },
+  {
+    name: 'Rejas',
+    title: 'Rejas para ventanas y patios',
+    detail: 'Rejas de hierro con las medidas y el diseño que mejor encajan en tu casa.',
+    image: 'https://images.unsplash.com/photo-1771605982999-744612d751e0?auto=format&fit=crop&w=1800&q=78'
+  },
+  {
+    name: 'Tejados de chapa',
+    title: 'Tejados y cubiertas de chapa',
+    detail: 'Cubiertas de chapa para patios, cocheras y zonas exteriores. Soluciones prácticas para proteger tu espacio.',
+    image: 'https://images.unsplash.com/photo-1701508793823-c1c936fc1368?auto=format&fit=crop&w=1800&q=78'
+  },
+  {
+    name: 'Barandas',
+    title: 'Barandas y pasamanos de hierro',
+    detail: 'Barandas para balcones, escaleras y terrazas. Fabricadas según las medidas de tu espacio.',
+    image: 'https://images.unsplash.com/photo-1506465243340-79d6321deb0e?auto=format&fit=crop&w=1800&q=78'
+  },
+  {
+    name: 'Soldadura y arreglos',
+    title: 'Soldadura, estructuras y arreglos',
+    detail: 'Reparaciones de hierro y pequeños trabajos de soldadura. Dinos qué necesitas y lo vemos.',
+    image: 'https://images.unsplash.com/photo-1748348812466-8e29e1348f73?auto=format&fit=crop&w=1800&q=78'
+  }
+];
 ---
-<section class="relative w-full h-screen min-h-[600px] flex flex-col justify-end pb-20 px-8 md:px-16 overflow-hidden">
-  
-  <div 
-    class="absolute inset-0 w-full h-full bg-cover bg-center z-0 animate-hero-zoom" 
-    style={`background-image: url('${fondoHero.src}');`}
-  >
-    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+<section class="hero" aria-labelledby="hero-title" id="trabajos">
+  <div class="hero__images" aria-hidden="true">
+    {slides.map((slide, i) => (
+      <img
+        class:list={['hero__image', { 'is-active': i === 0 }]}
+        src={i === 0 ? slide.image : undefined}
+        data-src={i > 0 ? slide.image : undefined}
+        alt=""
+        fetchpriority={i === 0 ? 'high' : undefined}
+        decoding="async"
+        data-image-index={i}
+      />
+    ))}
+  </div>
+  <div class="hero__wash" aria-hidden="true"></div>
+
+  <header class="header">
+    <a class="brand" href="#inicio" aria-label="Carpintería Metálica Juan Gamero, ir al inicio">
+      <span class="brand__name">GAMERO</span>
+      <span class="brand__subtitle">CARPINTERÍA METÁLICA</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#zona">Zona de trabajo</a>
+      <button type="button" data-open-contact>Contacto</button>
+    </nav>
+    <button class="pill header__cta" type="button" data-open-contact>
+      Pedir presupuesto <span class="circle-arrow" aria-hidden="true">↗</span>
+    </button>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Navegación móvil" hidden>
+      <a href="#inicio">Inicio</a><a href="#trabajos">Trabajos</a><a href="#zona">Zona de trabajo</a>
+      <button type="button" data-open-contact>Contacto</button>
+    </nav>
+  </header>
+
+  <div class="hero__text">
+    <p class="eyebrow">Trabajo de hierro hecho a medida · Casariche</p>
+    <h1 id="hero-title">Carpintería metálica en Casariche y alrededores.</h1>
+    <div class="slide-text" aria-live="off">
+      <span class="slide-text__step" id="slide-step">01 / 05 · LO QUE HACEMOS</span>
+      <h2 id="slide-title">{slides[0].title}</h2>
+      <p id="slide-detail">{slides[0].detail}</p>
+    </div>
+    <div class="hero__actions">
+      <button class="pill" type="button" data-open-contact>Pedir presupuesto <span class="circle-arrow" aria-hidden="true">↗</span></button>
+      <button class="text-link" type="button" id="hero-next-text"><span class="outline-arrow" aria-hidden="true">→</span> Ver otro trabajo</button>
+    </div>
   </div>
 
-  <div class="relative z-10 flex flex-col md:flex-row md:items-end justify-between w-full max-w-7xl mx-auto gap-12">
-    
-    <div class="md:w-3/5 reveal-text">
-      <h1 class="text-white text-5xl md:text-7xl font-karma leading-tight tracking-tight">
-        Forjando Soluciones <br/> Metálicas a Medida
-      </h1>
-    </div>
+  <p class="zone" id="zona"><strong>Trabajamos por la zona:</strong> Casariche, Herrera, Estepa, Puente Genil, Pedrera, La Roda de Andalucía y Osuna.</p>
 
-    <div class="md:w-2/5 flex flex-col items-start text-white reveal-card delay-200">
-      <p class="text-base md:text-lg mb-6 text-gray-200 leading-relaxed font-inter">
-        Únete a los cientos de clientes y empresas en Casariche y Sevilla que confían en nuestras estructuras. Diseño, fabricación y montaje garantizando durabilidad y estética.
-      </p>
-      
-      <a 
-        href="#servicios" 
-        class="font-sans group inline-flex items-center gap-2 text-white text-sm md:text-base font-medium border border-white/70 rounded-full px-6 py-2.5 hover:bg-white hover:text-black hover:border-white transition-all duration-300"
-      >
-        Explorar Servicios
-        
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          fill="none" 
-          viewBox="0 0 24 24" 
-          stroke-width="2" 
-          stroke="currentColor" 
-          class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-        </svg>
-      </a>
-    </div>
-
+  <div class="tabs" role="group" aria-label="Elegir tipo de trabajo">
+    {slides.map((slide, i) => (
+      <button class="tab" type="button" data-slide={i} aria-pressed={i === 0 ? 'true' : 'false'}>
+        {slide.name}
+      </button>
+    ))}
   </div>
+
+  <div class="controls" aria-label="Controles del carrusel">
+    <span class="controls__counter" id="slide-counter">01 / 05</span>
+    <span class="controls__track" aria-hidden="true"><span id="slide-progress"></span></span>
+    <button type="button" id="toggle-play" aria-label="Pausar carrusel">Ⅱ</button>
+    <button type="button" id="prev-slide" aria-label="Trabajo anterior">←</button>
+    <button type="button" id="next-slide" aria-label="Siguiente trabajo">→</button>
+  </div>
+  <p class="photo-note">Fotos ilustrativas de banco de imágenes · No son trabajos del taller</p>
 </section>
 
-<style>
-  .animate-hero-zoom {
-    animation: zoomIn 4s ease-out forwards;
-  }
+<dialog id="contact-dialog" class="contact-dialog" aria-labelledby="contact-heading">
+  <button type="button" class="contact-dialog__close" id="close-contact" aria-label="Cerrar">×</button>
+  <p class="eyebrow">Contacto · Versión de prueba</p>
+  <h2 id="contact-heading">¿Qué trabajo necesitas?</h2>
+  <p>Pronto podrás llamarnos o pedir presupuesto por WhatsApp. Estamos preparando los datos de contacto reales.</p>
+  <p><strong>Zona de trabajo:</strong> Casariche y pueblos cercanos.</p>
+  <p class="contact-dialog__demo">Esta ventana es una demostración. No recoge ni envía datos.</p>
+</dialog>
 
-  @keyframes zoomIn {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.08); }
+<script>
+  const section = document.querySelector<HTMLElement>('.hero');
+  if (section) {
+    const images = Array.from(section.querySelectorAll<HTMLImageElement>('.hero__image'));
+    const selectors = Array.from(section.querySelectorAll<HTMLButtonElement>('[data-slide]'));
+    const titles = ['Puertas de hierro a medida','Rejas para ventanas y patios','Tejados y cubiertas de chapa','Barandas y pasamanos de hierro','Soldadura, estructuras y arreglos'];
+    const details = [
+      'Puertas metálicas para patios, cocheras y entradas. Adaptadas al hueco y al uso que necesitas.',
+      'Rejas de hierro con las medidas y el diseño que mejor encajan en tu casa.',
+      'Cubiertas de chapa para patios, cocheras y zonas exteriores. Soluciones prácticas para proteger tu espacio.',
+      'Barandas para balcones, escaleras y terrazas. Fabricadas según las medidas de tu espacio.',
+      'Reparaciones de hierro y pequeños trabajos de soldadura. Dinos qué necesitas y lo vemos.'
+    ];
+    const titleEl = section.querySelector<HTMLElement>('#slide-title')!;
+    const detailEl = section.querySelector<HTMLElement>('#slide-detail')!;
+    const stepEl = section.querySelector<HTMLElement>('#slide-step')!;
+    const counterEl = section.querySelector<HTMLElement>('#slide-counter')!;
+    const progressEl = section.querySelector<HTMLElement>('#slide-progress')!;
+    const togglePlay = section.querySelector<HTMLButtonElement>('#toggle-play')!;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let index = 0;
+    let paused = reduceMotion;
+    let elapsed = 0;
+    let last = 0;
+    let raf = 0;
+    const duration = 7500;
+
+    function preload(i: number) {
+      const image = images[i];
+      if (image?.dataset.src) { image.src = image.dataset.src; delete image.dataset.src; }
+    }
+    function show(i: number) {
+      index = (i + titles.length) % titles.length;
+      preload(index);
+      preload((index + 1) % titles.length);
+      images.forEach((img, n) => img.classList.toggle('is-active', n === index));
+      selectors.forEach((btn, n) => btn.setAttribute('aria-pressed', String(n === index)));
+      titleEl.textContent = titles[index];
+      detailEl.textContent = details[index];
+      stepEl.textContent = `${String(index + 1).padStart(2, '0')} / 05 · LO QUE HACEMOS`;
+      counterEl.textContent = `${String(index + 1).padStart(2, '0')} / 05`;
+      elapsed = 0;
+      progressEl.style.width = '0%';
+    }
+    function tick(time: number) {
+      const delta = last ? Math.min(time - last, 100) : 0; last = time;
+      if (!paused && !document.hidden && !section.contains(document.activeElement)) {
+        elapsed += delta;
+        progressEl.style.width = `${Math.min(100, elapsed / duration * 100)}%`;
+        if (elapsed >= duration) show(index + 1);
+      }
+      raf = requestAnimationFrame(tick);
+    }
+    selectors.forEach(btn => btn.addEventListener('click', () => show(Number(btn.dataset.slide))));
+    section.querySelector('#prev-slide')?.addEventListener('click', () => show(index - 1));
+    section.querySelector('#next-slide')?.addEventListener('click', () => show(index + 1));
+    section.querySelector('#hero-next-text')?.addEventListener('click', () => show(index + 1));
+    togglePlay.addEventListener('click', () => {
+      paused = !paused;
+      togglePlay.textContent = paused ? '▶' : 'Ⅱ';
+      togglePlay.setAttribute('aria-label', paused ? 'Reanudar carrusel' : 'Pausar carrusel');
+    });
+    if (paused) { togglePlay.textContent = '▶'; togglePlay.setAttribute('aria-label', 'Reanudar carrusel'); }
+    let startX = 0, startY = 0;
+    section.addEventListener('touchstart', e => { startX = e.changedTouches[0].clientX; startY = e.changedTouches[0].clientY; }, { passive: true });
+    section.addEventListener('touchend', e => {
+      if ((e.target as HTMLElement).closest('button, nav, dialog')) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      const dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > 65 && Math.abs(dx) > Math.abs(dy) * 1.5) show(index + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+    section.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); show(index + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); show(index - 1); }
+    });
+    const menuButton = section.querySelector<HTMLButtonElement>('#menu-toggle')!;
+    const mobileNav = section.querySelector<HTMLElement>('#mobile-nav')!;
+    function closeMenu() { mobileNav.hidden = true; menuButton.setAttribute('aria-expanded', 'false'); }
+    menuButton.addEventListener('click', () => {
+      mobileNav.hidden = !mobileNav.hidden;
+      menuButton.setAttribute('aria-expanded', String(!mobileNav.hidden));
+    });
+    mobileNav.querySelectorAll('a,button').forEach(el => el.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+    const dialog = document.querySelector<HTMLDialogElement>('#contact-dialog')!;
+    document.querySelectorAll('[data-open-contact]').forEach(btn => btn.addEventListener('click', () => {
+      closeMenu(); dialog.showModal();
+    }));
+    document.querySelector('#close-contact')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+    show(0);
+    raf = requestAnimationFrame(tick);
+    window.addEventListener('pagehide', () => cancelAnimationFrame(raf), { once: true });
   }
-</style>
+</script>

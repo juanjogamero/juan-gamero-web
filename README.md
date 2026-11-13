@@ -1,46 +1,42 @@
-# Astro Starter Kit: Basics
+# Carpintería Metálica Juan Gamero
 
-```sh
-npm create astro@latest -- --template basics
+Web estática de **metalicasgamero.es**, construida con Astro. Trabajo por secciones, optimizada para móvil, SEO local y carga rápida.
+
+## Estado
+
+Versión de desarrollo: solo portada / hero. El teléfono, WhatsApp y las imágenes de trabajos reales están pendientes. Las imágenes visibles son **referencias de banco de imágenes**, no trabajos del taller.
+
+## Desarrollo local
+
+Requiere Node 22 o superior.
+
+```bash
+npm ci
+npm run dev
+npm run build
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Publicación en GitHub Pages
 
-## 🚀 Project Structure
+1. Aprueba e integra esta rama en `main` mediante su Pull Request.
+2. Abre **Settings > Pages > Build and deployment > Source: GitHub Actions**.
+3. El flujo `.github/workflows/deploy.yml` ejecuta `npm ci`, construye Astro y despliega cada cambio en `main`.
+4. URL prevista: `https://juanjogamero.github.io/juan-gamero-web/` **cuando el despliegue se haya completado**.
 
-Inside of your Astro project, you'll see the following folders and files:
+En GitHub Pages el proyecto lleva `noindex` para no indexar pruebas. El sitio definitivo pasará a `https://metalicasgamero.es/` cuando los contenidos, fotos, contactos y dominio estén listos.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## Trasladar al dominio definitivo
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+En la plataforma de publicación definitiva configura las variables `DEPLOY_TARGET=production` y `PUBLIC_SITE_STAGE=production`; Astro generará URLs para `metalicasgamero.es`, sin prefijo de repositorio. Configurar también DNS y los datos de contacto verificados. No apuntar el dominio durante el desarrollo.
 
-## 🧞 Commands
+## Arquitectura
 
-All commands are run from the root of the project, from a terminal:
+- `src/pages/index.astro`: página de inicio.
+- `src/components/Hero.astro`: portada con carrusel accesible.
+- `src/layouts/BaseLayout.astro`: etiquetas SEO y estructura común.
+- `src/styles/global.css`: estilo visual compartido.
+- `astro.config.mjs`: URLs para GitHub Pages o dominio definitivo.
+- `.github/workflows/deploy.yml`: validación de PR y publicación de main.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+**Criterio editorial:** Casariche y pueblos cercanos, sin dirección exacta del taller. No inventar reseñas, obras o teléfonos. Prioridad a rejas, puertas, barandas, chapa, estructuras y reparaciones. Puertas automáticas secundarias.
