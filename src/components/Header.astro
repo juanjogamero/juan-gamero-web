@@ -206,7 +206,7 @@ const instagram = 'https://www.instagram.com/carpinteriametalica.juangamero/';
     white-space: nowrap;
     transition: background-color .2s ease, color .2s ease, border-color .2s ease;
   }
-  .header-contact span { font-size: 18px; line-height: 1; font-weight: 400; }
+  .header-contact .contact-icon { font-size: 18px; line-height: 1; font-weight: 400; }
   .header-contact:hover { background: #e9eee9; }
   .is-scrolled .header-contact {
     color: #fff;
@@ -297,7 +297,7 @@ const instagram = 'https://www.instagram.com/carpinteriametalica.juangamero/';
       padding: 0 10px;
       font-size: 0;
     }
-    .header-contact span { font-size: 19px; }
+    .header-contact .contact-icon { font-size: 19px; }
   }
   @media(prefers-reduced-motion:reduce) {
     .global-header,
@@ -346,6 +346,10 @@ const instagram = 'https://www.instagram.com/carpinteriametalica.juangamero/';
   }
   .header-contact .contact-label {
     display:inline-block;
+    font-size:inherit;
+    font-weight:inherit;
+    line-height:1.2;
+    text-decoration:none;
     transition:transform .35s cubic-bezier(.2,.8,.2,1);
   }
   .header-contact .contact-icon {
