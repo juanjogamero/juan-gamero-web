@@ -1,14 +1,17 @@
 # Carpintería Metálica Juan Gamero
 
-Web estática de **metalicasgamero.es**, construida con Astro. Trabajo por secciones, optimizada para móvil, SEO local y carga rápida.
+Proyecto base de la nueva web de **Carpintería Metálica Juan Gamero**.
 
-## Estado
+**Estado:** inicio desde cero. La página está intencionadamente vacía: aún no hay hero, servicios, galería ni contacto.
 
-Versión de desarrollo: solo portada / hero. El teléfono, WhatsApp y las imágenes de trabajos reales están pendientes. Las imágenes visibles son **referencias de banco de imágenes**, no trabajos del taller.
+## Tecnología
 
-## Desarrollo local
+- Astro, generación estática.
+- GitHub Actions para compilar y publicar en GitHub Pages.
+- HTML, CSS y JavaScript cuando cada sección lo necesite.
+- Node.js 22 para desarrollo y compilación.
 
-Requiere Node 22 o superior.
+## Desarrollo
 
 ```bash
 npm ci
@@ -17,26 +20,32 @@ npm run build
 npm run preview
 ```
 
-## Publicación en GitHub Pages
+## Estructura
 
-1. Aprueba e integra esta rama en `main` mediante su Pull Request.
-2. Abre **Settings > Pages > Build and deployment > Source: GitHub Actions**.
-3. El flujo `.github/workflows/deploy.yml` ejecuta `npm ci`, construye Astro y despliega cada cambio en `main`.
-4. URL prevista: `https://juanjogamero.github.io/juan-gamero-web/` **cuando el despliegue se haya completado**.
+```text
+src/
+  components/        Componentes que iremos diseñando
+  layouts/
+    BaseLayout.astro  Documento HTML y metadatos base
+  pages/
+    index.astro       Página vacía de inicio
+  styles/
+    global.css        Reset mínimo
+public/               Recursos estáticos futuros
+```
 
-En GitHub Pages el proyecto lleva `noindex` para no indexar pruebas. El sitio definitivo pasará a `https://metalicasgamero.es/` cuando los contenidos, fotos, contactos y dominio estén listos.
+## Despliegue de pruebas
 
-## Trasladar al dominio definitivo
+La rama `main` se compila y publica automáticamente mediante `.github/workflows/deploy.yml`.
 
-En la plataforma de publicación definitiva configura las variables `DEPLOY_TARGET=production` y `PUBLIC_SITE_STAGE=production`; Astro generará URLs para `metalicasgamero.es`, sin prefijo de repositorio. Configurar también DNS y los datos de contacto verificados. No apuntar el dominio durante el desarrollo.
+URL: https://juanjogamero.github.io/juan-gamero-web/
 
-## Arquitectura
+En GitHub Pages se utiliza `noindex` para evitar que Google indexe la web en desarrollo. Cuando se publique en el dominio definitivo, se activará la configuración de producción y se revisarán antes los textos, imágenes, contacto y SEO local.
 
-- `src/pages/index.astro`: página de inicio.
-- `src/components/Hero.astro`: portada con carrusel accesible.
-- `src/layouts/BaseLayout.astro`: etiquetas SEO y estructura común.
-- `src/styles/global.css`: estilo visual compartido.
-- `astro.config.mjs`: URLs para GitHub Pages o dominio definitivo.
-- `.github/workflows/deploy.yml`: validación de PR y publicación de main.
+## Negocio y alcance
 
-**Criterio editorial:** Casariche y pueblos cercanos, sin dirección exacta del taller. No inventar reseñas, obras o teléfonos. Prioridad a rejas, puertas, barandas, chapa, estructuras y reparaciones. Puertas automáticas secundarias.
+Actividad: carpintería metálica de hierro, forja, rejas, puertas, barandas, tejados, cubiertas, estructuras, cerramientos, soldadura y reparaciones; instalación y motorización de puertas automáticas como servicio secundario en colaboración.
+
+Base en Casariche. Cobertura en pueblos cercanos como Herrera, Estepa, Pedrera, La Roda de Andalucía, Puente Genil y Osuna. No publicar dirección del taller ni datos inventados. La galería mostrará proyectos reales cuando se disponga de sus fotografías.
+
+**Criterio de diseño:** las nuevas secciones se desarrollarán a partir de referencias aportadas, respetando su composición y coherencia visual, con adaptación móvil y accesibilidad.

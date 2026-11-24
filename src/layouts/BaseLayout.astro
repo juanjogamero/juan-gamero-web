@@ -2,26 +2,25 @@
 import '../styles/global.css';
 
 interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 }
 
-const { title, description } = Astro.props;
-const production = import.meta.env.PUBLIC_SITE_STAGE === 'production';
-const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const {
+  title = 'Carpintería Metálica Juan Gamero',
+  description = 'Carpintería metálica y trabajos de hierro a medida en Casariche y alrededores.'
+} = Astro.props;
+
+const isProduction = import.meta.env.PUBLIC_SITE_STAGE === 'production';
 ---
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f8f7f4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
     <meta name="description" content={description} />
-    {production ? <link rel="canonical" href={canonical} /> : <meta name="robots" content="noindex,nofollow" />}
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="es_ES" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    {!isProduction && <meta name="robots" content="noindex, nofollow" />}
     <title>{title}</title>
   </head>
   <body>

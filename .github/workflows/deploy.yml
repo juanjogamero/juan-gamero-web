@@ -1,9 +1,9 @@
-name: Verificar y publicar Astro
+name: Astro — comprobar y publicar en GitHub Pages
 
 on:
   pull_request:
   push:
-    branches: [main, reinicio-astro-2026]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -17,21 +17,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Obtener el código
+      - name: Obtener el repositorio
         uses: actions/checkout@v4
-      - name: Preparar Node
+
+      - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: npm
-      - name: Instalar dependencias reproducibles
+
+      - name: Instalar dependencias
         run: npm ci
-      - name: Compilar el sitio Astro
+
+      - name: Compilar Astro
         run: npm run build
         env:
           DEPLOY_TARGET: github
           PUBLIC_SITE_STAGE: preview
-      - name: Subir la web construida
+
+      - name: Preparar archivos para Pages
         if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v4
         with:
