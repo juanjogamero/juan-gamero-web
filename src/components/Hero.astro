@@ -1,317 +1,317 @@
 ---
 const phone = '+34675731867';
-const slides = [
-  {
-    label: 'Rejas',
-    title: 'Rejas y forja',
-    summary: 'Rejas para ventanas y patios',
-    detail: 'Hierro trabajado a medida',
-    image: 'https://images.unsplash.com/photo-1567248986135-c1dc986b198d?auto=format&fit=crop&w=1900&q=82',
-    cards: [
-      { title: 'Rejas de hierro', subtitle: 'Ventanas, patios y viviendas', tag: 'A medida', image: 'https://images.pexels.com/photos/33398368/pexels-photo-33398368.jpeg?auto=compress&cs=tinysrgb&w=480' },
-      { title: 'Forja y detalles', subtitle: 'Diseños clásicos y actuales', tag: 'Hierro y forja', image: 'https://images.pexels.com/photos/39972580/pexels-photo-39972580.jpeg?auto=compress&cs=tinysrgb&w=480' }
-    ]
-  },
-  {
-    label: 'Puertas',
-    title: 'Puertas de hierro',
-    summary: 'Accesos para casas y fincas',
-    detail: 'Fabricación y montaje',
-    image: 'https://images.pexels.com/photos/39743614/pexels-photo-39743614.jpeg?auto=compress&cs=tinysrgb&w=1900',
-    cards: [
-      { title: 'Puertas metálicas', subtitle: 'Patios, cocheras y entradas', tag: 'A medida', image: 'https://images.pexels.com/photos/14355575/pexels-photo-14355575.jpeg?auto=compress&cs=tinysrgb&w=480' },
-      { title: 'Puertas de campo', subtitle: 'Parcelas, fincas y naves', tag: 'Uso diario', image: 'https://images.pexels.com/photos/13278911/pexels-photo-13278911.jpeg?auto=compress&cs=tinysrgb&w=480' }
-    ]
-  },
-  {
-    label: 'Tejados',
-    title: 'Tejados de chapa',
-    summary: 'Cubiertas para patios y cocheras',
-    detail: 'Chapa e imitación teja',
-    image: 'https://images.pexels.com/photos/17870967/pexels-photo-17870967.jpeg?auto=compress&cs=tinysrgb&w=1900',
-    cards: [
-      { title: 'Cubiertas de chapa', subtitle: 'Tejados para patios y naves', tag: 'Chapa y chapa teja', image: 'https://images.pexels.com/photos/37704240/pexels-photo-37704240.jpeg?auto=compress&cs=tinysrgb&w=480' },
-      { title: 'Porches metálicos', subtitle: 'Espacios cubiertos y cocheras', tag: 'A medida', image: 'https://images.pexels.com/photos/9951822/pexels-photo-9951822.jpeg?auto=compress&cs=tinysrgb&w=480' }
-    ]
-  },
-  {
-    label: 'Estructuras',
-    title: 'Estructuras metálicas',
-    summary: 'Naves, cerramientos y soldadura',
-    detail: 'Trabajos de hierro y arreglos',
-    image: 'https://images.pexels.com/photos/12762731/pexels-photo-12762731.jpeg?auto=compress&cs=tinysrgb&w=1900',
-    cards: [
-      { title: 'Naves y cerramientos', subtitle: 'Estructuras para campo y negocio', tag: 'Metal a medida', image: 'https://images.pexels.com/photos/10682522/pexels-photo-10682522.jpeg?auto=compress&cs=tinysrgb&w=480' },
-      { title: 'Barandas y soldadura', subtitle: 'Pasamanos, reparaciones y forja', tag: 'Más trabajos', image: 'https://images.pexels.com/photos/9825643/pexels-photo-9825643.jpeg?auto=compress&cs=tinysrgb&w=480' }
-    ]
-  }
+const instagram = 'https://www.instagram.com/carpinteriametalica.juangamero/';
+const services = [
+  { title: 'Rejas y forja', text: 'Rejas de hierro, trabajos de forja y soluciones a medida para viviendas.' },
+  { title: 'Puertas metálicas', text: 'Puertas para patios, cocheras, parcelas, fincas y accesos de naves.' },
+  { title: 'Tejados y cubiertas', text: 'Tejados de chapa, chapa imitación teja, porches y espacios cubiertos.' },
+  { title: 'Barandas y pasamanos', text: 'Barandas de hierro para balcones, escaleras y terrazas.' },
+  { title: 'Estructuras y cerramientos', text: 'Estructuras metálicas, cerramientos de naves y soluciones para el campo.' },
+  { title: 'Soldadura y arreglos', text: 'Reparaciones, soldaduras y trabajos especiales de hierro.' },
+  { title: 'Puertas automáticas', text: 'Instalación y motorización mediante colaboración con profesionales especializados.' }
 ];
 ---
 
-<section class="hero-wrap" aria-label="Carpintería Metálica Juan Gamero">
-  <div class="hero" id="inicio">
-    <div class="hero-scenes" aria-hidden="true">
-      {slides.map((slide, i) => <img class:list={['scene',{'active':i===0}]} src={slide.image} alt="" fetchpriority={i===0?'high':undefined} loading={i===0?'eager':'lazy'} decoding="async" />)}
-    </div>
-    <div class="hero-tint" aria-hidden="true"></div>
+<section class="home-hero" id="inicio" aria-labelledby="hero-title">
+  <div class="hero-photo" aria-hidden="true">
+    <img
+      src="https://images.pexels.com/photos/25565675/pexels-photo-25565675.jpeg?auto=compress&cs=tinysrgb&w=2200"
+      alt=""
+      fetchpriority="high"
+      decoding="async"
+    />
+  </div>
+  <div class="hero-shade" aria-hidden="true"></div>
 
-    <header class="hero-header">
-      <a class="brand" href="#inicio" aria-label="Carpintería Metálica Juan Gamero, inicio">
-        <span class="brand-icon">JG</span>
-        <span class="brand-words"><strong>Juan Gamero</strong><small>CARPINTERÍA METÁLICA</small></span>
-      </a>
-      <nav class="hero-nav" aria-label="Menú principal">
-        <a href="#tipos">Servicios</a>
-        <a href="https://www.instagram.com/carpinteriametalica.juangamero/" target="_blank" rel="noopener noreferrer">Trabajos</a>
-        <a href="#zona">Dónde trabajamos</a>
-        <a href="tel:${phone}">Contacto</a>
-      </nav>
-      <a class="top-cta" href="tel:${phone}">Pedir presupuesto <span aria-hidden="true">↗</span></a>
-      <button class="menu-button" id="hero-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="hero-mobile-nav"><span></span><span></span><span></span></button>
-    </header>
-    <nav class="mobile-menu" id="hero-mobile-nav" aria-label="Menú móvil" hidden>
-      <a href="#tipos">Servicios</a>
-      <a href="https://www.instagram.com/carpinteriametalica.juangamero/" target="_blank" rel="noopener noreferrer">Trabajos</a>
-      <a href="#zona">Dónde trabajamos</a>
-      <a href="tel:${phone}">Contacto</a>
+  <header class="site-header">
+    <a class="wordmark" href="#inicio" aria-label="Juan Gamero, ir al inicio">Juan Gamero<span class="wordmark-dot">.</span></a>
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      <button type="button" data-open-modal="services">SERVICIOS</button>
+      <a href={instagram} target="_blank" rel="noopener noreferrer">TRABAJOS</a>
+      <button type="button" data-open-modal="areas">DÓNDE TRABAJAMOS</button>
+      <a href={"tel:" + phone}>CONTACTO</a>
     </nav>
+    <button class="mobile-menu-trigger" id="nav-trigger" type="button" aria-controls="mobile-navigation" aria-expanded="false" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
 
-    <div class="hero-main">
-      <div class="hero-copy">
-        <p class="overline">HIERRO, FORJA Y SOLUCIONES A MEDIDA · CASARICHE</p>
-        <h1>Carpintería metálica en Casariche y alrededores</h1>
-        <p class="hero-lead">Puertas de hierro, rejas, barandas, tejados de chapa y estructuras metálicas para viviendas, fincas y negocios.</p>
-        <p class="hero-zone" id="zona">Trabajamos en Casariche, Herrera, Estepa, Pedrera, Puente Genil, La Roda de Andalucía, Osuna y pueblos cercanos.</p>
-        <a class="primary-cta" href="tel:${phone}">Pedir presupuesto <span aria-hidden="true">↗</span></a>
-      </div>
+  <nav class="mobile-navigation" id="mobile-navigation" aria-label="Navegación móvil" hidden>
+    <button type="button" data-open-modal="services">Servicios</button>
+    <a href={instagram} target="_blank" rel="noopener noreferrer">Trabajos</a>
+    <button type="button" data-open-modal="areas">Dónde trabajamos</button>
+    <a href={"tel:" + phone}>Contacto</a>
+  </nav>
 
-      <div class="cards-stage" aria-label="Ejemplos de nuestros servicios">
-        {slides.map((slide, slideIndex) => (
-          <div class:list={['cards-set',{'active':slideIndex===0}]} data-set={slideIndex}>
-            {slide.cards.map(card => (
-              <article class="mini-card">
-                <img src={card.image} loading="lazy" decoding="async" alt="Foto de referencia de banco de imágenes para este tipo de trabajo" />
-                <div class="mini-copy"><h2>{card.title}</h2><p>{card.subtitle}</p><strong>{card.tag}</strong></div>
-              </article>
-            ))}
-          </div>
-        ))}
-      </div>
+  <div class="hero-content">
+    <h1 id="hero-title">Carpintería metálica.<span>Hierro hecho para durar.</span></h1>
+    <p>Rejas, puertas, barandas y cubiertas de hierro a medida.<br class="desktop-break" /> En Casariche y pueblos cercanos.</p>
+    <div class="hero-actions">
+      <a class="action action-primary" href={"tel:" + phone}>Pedir presupuesto <span aria-hidden="true">→</span></a>
+      <a class="action action-secondary" href={instagram} target="_blank" rel="noopener noreferrer">Ver trabajos</a>
     </div>
+  </div>
 
-    <div class="hero-footer" id="tipos">
-      <div class="pills" role="group" aria-label="Seleccionar tipo de trabajo">
-        {slides.map((slide,i) => <button class:list={['pill',{'active':i===0}]} type="button" data-slide={i} aria-pressed={i===0?'true':'false'}>{slide.label}</button>)}
-      </div>
-      <div class="arrows">
-        <span class="count" id="hero-count">01 / 04</span>
-        <button class="arrow" type="button" aria-label="Trabajo anterior" data-direction="-1">←</button>
-        <button class="arrow" type="button" aria-label="Siguiente trabajo" data-direction="1">→</button>
-      </div>
+  <div class="hero-bottom">
+    <p class="bottom-intro">De una reja para casa a una cubierta para tu nave. Trabajos de hierro, forja y soldadura adaptados a lo que necesitas.</p>
+    <div class="hero-services" aria-label="Especialidades de carpintería metálica">
+      <div><strong>Rejas</strong><span>Protección y diseño</span></div>
+      <div><strong>Puertas</strong><span>Accesos a medida</span></div>
+      <div><strong>Tejados</strong><span>Chapa y cubiertas</span></div>
     </div>
-    <p class="disclaimer">Fotografías ilustrativas de Unsplash y Pexels; no son trabajos de Juan Gamero.</p>
   </div>
 </section>
 
-<script>
-  const root = document.querySelector<HTMLElement>('.hero');
-  if (root) {
-    const sceneList = Array.from(root.querySelectorAll<HTMLElement>('.scene'));
-    const sets = Array.from(root.querySelectorAll<HTMLElement>('.cards-set'));
-    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-slide]'));
-    const counter = root.querySelector<HTMLElement>('#hero-count');
-    const menuButton = root.querySelector<HTMLButtonElement>('#hero-menu-toggle');
-    const menu = root.querySelector<HTMLElement>('#hero-mobile-nav');
-    let active = 0;
-    let timer: number | undefined;
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+<dialog class="hero-dialog" id="services-dialog" aria-labelledby="services-dialog-heading">
+  <button type="button" class="dialog-close" data-close-dialog aria-label="Cerrar ventana">×</button>
+  <p class="dialog-overline">QUÉ HACEMOS</p>
+  <h2 id="services-dialog-heading">Trabajos de carpintería metálica</h2>
+  <p>Juan Gamero realiza trabajos de hierro a medida para viviendas, fincas, naves y negocios. Si necesitas algo que no aparece aquí, puedes consultarlo igualmente.</p>
+  <div class="dialog-services">
+    {services.map(service => <article><h3>{service.title}</h3><p>{service.text}</p></article>)}
+  </div>
+  <a class="dialog-contact" href={"tel:" + phone}>Consultar mi trabajo <span aria-hidden="true">→</span></a>
+</dialog>
 
-    function render(next: number) {
-      active = (next + tabs.length) % tabs.length;
-      sceneList.forEach((el,i) => el.classList.toggle('active', i===active));
-      sets.forEach((el,i) => el.classList.toggle('active', i===active));
-      tabs.forEach((el,i) => { el.classList.toggle('active',i===active); el.setAttribute('aria-pressed',String(i===active)); });
-      if (counter) counter.textContent = String(active + 1).padStart(2,'0') + ' / 04';
-    }
-    function resetTimer() {
-      window.clearInterval(timer);
-      if (!reducedMotion) timer=window.setInterval(() => { if (!document.hidden && !root.matches(':hover') && !root.contains(document.activeElement)) render(active+1); },8000);
-    }
-    tabs.forEach((tab,i)=>tab.addEventListener('click',()=>{render(i);resetTimer();}));
-    root.querySelectorAll<HTMLButtonElement>('[data-direction]').forEach(button=>button.addEventListener('click',()=>{render(active+Number(button.dataset.direction));resetTimer();}));
-    menuButton?.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));menuButton.setAttribute('aria-label',open?'Abrir menú':'Cerrar menú');if(menu)menu.hidden=open;});
-    menu?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{menu.hidden=true;menuButton?.setAttribute('aria-expanded','false');}));
-    document.addEventListener('keydown',e=>{if(e.key==='Escape' && menu){menu.hidden=true;menuButton?.setAttribute('aria-expanded','false');}});
-    resetTimer();
+<dialog class="hero-dialog" id="areas-dialog" aria-labelledby="areas-dialog-heading">
+  <button type="button" class="dialog-close" data-close-dialog aria-label="Cerrar ventana">×</button>
+  <p class="dialog-overline">CERCA DE TI</p>
+  <h2 id="areas-dialog-heading">Carpintería metálica en Casariche y alrededores</h2>
+  <p>El taller trabaja desde Casariche y atiende encargos en poblaciones próximas como Herrera, Estepa, Pedrera, La Roda de Andalucía, Puente Genil y Osuna. Consulta disponibilidad para tu localidad.</p>
+  <a class="dialog-contact" href={"tel:" + phone}>Preguntar por mi localidad <span aria-hidden="true">→</span></a>
+</dialog>
+
+<script>
+  const trigger = document.querySelector<HTMLButtonElement>('#nav-trigger');
+  const mobileNavigation = document.querySelector<HTMLElement>('#mobile-navigation');
+  function closeNavigation() {
+    if (mobileNavigation) mobileNavigation.hidden = true;
+    trigger?.setAttribute('aria-expanded', 'false');
+    trigger?.setAttribute('aria-label', 'Abrir menú');
   }
+  trigger?.addEventListener('click', () => {
+    const expanded = trigger.getAttribute('aria-expanded') === 'true';
+    if (mobileNavigation) mobileNavigation.hidden = expanded;
+    trigger.setAttribute('aria-expanded', String(!expanded));
+    trigger.setAttribute('aria-label', expanded ? 'Abrir menú' : 'Cerrar menú');
+  });
+  document.querySelectorAll<HTMLButtonElement>('[data-open-modal]').forEach(button => {
+    button.addEventListener('click', () => {
+      closeNavigation();
+      const id = button.dataset.openModal === 'areas' ? 'areas-dialog' : 'services-dialog';
+      const dialog = document.getElementById(id) as HTMLDialogElement | null;
+      if (dialog && !dialog.open) dialog.showModal();
+    });
+  });
+  document.querySelectorAll<HTMLDialogElement>('.hero-dialog').forEach(dialog => {
+    dialog.querySelector('[data-close-dialog]')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => {
+      if (event.target === dialog) dialog.close();
+    });
+  });
+  mobileNavigation?.querySelectorAll('a').forEach(link => link.addEventListener('click',closeNavigation));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeNavigation();
+  });
 </script>
 
 <style>
-  :global(*),:global(*::before),:global(*::after){box-sizing:border-box}
-  :global(body){margin:0;font-family:var(--font-family-site);background:#e9e7e3}
-  :global(a){color:inherit;text-decoration:none}
-  :global(button){font:inherit;cursor:pointer}
-  :global(a:focus-visible),:global(button:focus-visible){outline:3px solid #fff;outline-offset:3px}
-  .hero-wrap{padding:20px;min-height:100svh}
-  .hero{isolation:isolate;position:relative;min-height:calc(100svh - 40px);border-radius:32px;overflow:hidden;background:#191919;color:white;padding:29px 44px 22px;display:flex;flex-direction:column;box-shadow:0 15px 50px #00000037}
-  .hero-scenes,.hero-tint,.scene{position:absolute;inset:0;width:100%;height:100%}
-  .hero-scenes{z-index:-2;overflow:hidden}
-  .scene{object-fit:cover;object-position:center;opacity:0;transform:scale(1.035);transition:opacity .65s ease,transform 1.2s ease;filter:saturate(.69) contrast(1.07) brightness(.87)}
-  .scene.active{opacity:1;transform:scale(1)}
-  .hero-tint{z-index:-1;background:linear-gradient(90deg,rgba(12,12,13,.97) 0%,rgba(15,15,16,.91) 28%,rgba(17,17,18,.66) 55%,rgba(18,18,18,.26) 100%),linear-gradient(0deg,rgba(9,9,10,.80) 0%,transparent 41%)}
-  .hero-header{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;z-index:5}
-  .brand{display:inline-flex;align-items:center;gap:11px;min-width:0;width:max-content}
-  .brand-icon{width:48px;height:48px;border:3px solid #fff8;border-radius:50%;display:grid;place-items:center;background:#31302f;font-size:19px;font-weight:900;letter-spacing:-1px;box-shadow:0 8px 20px #0007}
-  .brand-words{display:flex;flex-direction:column;gap:3px;min-width:0}
-  .brand-words strong{font-size:clamp(23px,2.1vw,32px);font-weight:750;letter-spacing:-1.2px;line-height:1}
-  .brand-words small{font-size:9px;font-weight:750;letter-spacing:2.1px;white-space:nowrap;color:#fffd}
-  .hero-nav{display:flex;align-items:center;gap:3px;padding:6px;border:1px solid #ffffff24;border-radius:70px;background:#232324b3;backdrop-filter:blur(15px);white-space:nowrap}
-  .hero-nav a{padding:12px 16px;border-radius:40px;font-size:13px;font-weight:550;color:#fff;transition:background .2s}
-  .hero-nav a:hover{background:#ffffff35}
-  .top-cta,.primary-cta{background:#fff;color:#202020;border:0;border-radius:80px;display:inline-flex;align-items:center;justify-content:space-between;gap:20px;font-size:14px;font-weight:700;padding:9px 9px 9px 24px;transition:transform .22s ease,box-shadow .22s ease}
-  .top-cta:hover,.primary-cta:hover{transform:translateY(-3px);box-shadow:0 12px 28px #0008}
-  .top-cta{justify-self:end;white-space:nowrap}
-  .top-cta span,.primary-cta span{height:33px;width:33px;display:grid;place-items:center;font-size:22px;line-height:1}
-  .menu-button{display:none}
-  .mobile-menu[hidden]{display:none!important}
-  .hero-main{flex:1;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;padding:clamp(75px,9vh,145px) 12px 50px;min-height:0}
-  .hero-copy{max-width:730px;align-self:center;padding-bottom:65px}
-  .overline{font-size:12px;font-weight:800;letter-spacing:1.6px;margin:0 0 21px;color:#fffe}
-  h1{margin:0;font-size:clamp(48px,5.35vw,80px);max-width:770px;font-weight:750;line-height:1.04;letter-spacing:-.057em;text-wrap:balance}
-  .hero-lead{margin:25px 0 10px;font-size:clamp(16px,1.35vw,21px);line-height:1.46;max-width:515px;color:#fffe}
-  .hero-zone{font-size:13px;line-height:1.5;max-width:480px;color:#fffbb;margin:0 0 27px}
-  .primary-cta{min-height:59px}
-  .cards-stage{height:340px;align-self:end;position:relative;margin-bottom:5px;min-width:0}
-  .cards-set{position:absolute;inset:0;display:grid;align-content:end;gap:12px;opacity:0;pointer-events:none;transform:translateX(20px);transition:opacity .4s ease,transform .45s ease}
-  .cards-set.active{opacity:1;pointer-events:auto;transform:translateX(0)}
-  .mini-card{display:grid;grid-template-columns:142px minmax(0,1fr);align-items:stretch;gap:17px;padding:12px;background:#1c1b1bd9;border:1px solid #ffffff57;border-radius:23px;backdrop-filter:blur(18px);box-shadow:0 16px 40px #0008;min-height:144px}
-  .mini-card:nth-child(2){background:#393738dd;transform:translateX(25px)}
-  .mini-card img{width:142px;height:124px;object-fit:cover;border-radius:15px}
-  .mini-copy{min-width:0;display:flex;flex-direction:column;justify-content:center;gap:8px}
-  .mini-copy h2{font-size:clamp(18px,1.6vw,24px);font-weight:650;letter-spacing:-.6px;line-height:1.1;margin:0}
-  .mini-copy p{font-size:13px;color:#fffd;margin:0;line-height:1.35}
-  .mini-copy strong{font-size:13px;margin-top:9px;color:white;font-weight:600}
-  .hero-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;z-index:2}
-  .pills{display:flex;gap:10px;flex-wrap:wrap}
-  .pill{color:white;border:1px solid #ffffff66;background:#ffffff0d;border-radius:90px;padding:12px 20px;min-height:47px;font-size:14px;font-weight:600;transition:background .2s}
-  .pill:hover,.pill.active{background:#ffffff37}
-  .arrows{display:flex;align-items:center;gap:10px}
-  .count{font-size:12px;letter-spacing:1px;color:#fffddd;margin-right:10px;white-space:nowrap}
-  .arrow{width:50px;height:50px;border:0;background:white;color:#1e1e1e;border-radius:50%;display:grid;place-items:center;font-size:24px;transition:transform .2s}
-  .arrow:hover{transform:scale(1.08)}
-  .disclaimer{font-size:10px;color:#ffffffb0;margin:13px 0 0;z-index:2;text-align:right}
-  @media(max-width:1200px){.hero{padding:24px 28px 22px}.hero-header{gap:10px}.hero-nav a{padding:11px}.brand-words strong{font-size:23px}.hero-main{grid-template-columns:1fr .82fr}.mini-card{grid-template-columns:115px 1fr}.mini-card img{width:115px}.hero-copy{padding-bottom:0}}
-  @media(max-width:990px){.hero-wrap{padding:12px}.hero{border-radius:25px;padding:20px;min-height:calc(100svh - 24px)}.hero-header{grid-template-columns:1fr auto}.hero-nav,.top-cta{display:none}.menu-button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:48px;height:48px;border:1px solid #fff8;background:#ffffff35;color:white;border-radius:15px}.menu-button span{width:20px;height:2px;background:white;border-radius:2px}.mobile-menu{position:absolute;z-index:10;top:82px;right:20px;left:20px;padding:13px;background:#202020f5;backdrop-filter:blur(15px);border:1px solid #fff5;border-radius:20px;display:grid;gap:2px;box-shadow:0 16px 40px #0005}.mobile-menu a{padding:13px;border-radius:10px;font-weight:600}.mobile-menu a:hover{background:#ffffff29}.hero-main{grid-template-columns:1fr;gap:20px;padding:85px 6px 50px}.hero-copy{max-width:700px}.cards-stage{height:150px;max-width:640px;width:100%;align-self:center}.cards-set{grid-template-columns:1fr 1fr;gap:10px;align-content:stretch}.mini-card,.mini-card:nth-child(2){grid-template-columns:1fr;transform:none;padding:9px;min-height:0;gap:8px}.mini-card img{width:100%;height:80px}.mini-copy h2{font-size:16px}.mini-copy p{font-size:11px}.mini-copy strong{display:none}.hero-footer{align-items:center}.disclaimer{text-align:left}}
-  @media(max-width:560px){.hero-wrap{padding:8px}.hero{padding:16px;border-radius:23px}.brand-words strong{font-size:22px}.brand-words small{font-size:8px;letter-spacing:1.35px}.brand-icon{height:43px;width:43px;font-size:17px}.hero-main{padding:65px 1px 35px;gap:35px}.overline{font-size:10px;letter-spacing:1.1px;margin-bottom:16px}h1{font-size:clamp(38px,9.1vw,53px)}.hero-lead{font-size:15px;margin-top:20px}.hero-zone{font-size:12px}.primary-cta{min-height:54px;padding-left:20px}.cards-stage{height:162px}.mini-card{padding:9px;border-radius:16px}.mini-card img{height:83px;border-radius:10px}.mini-copy h2{font-size:13px;line-height:1.14;letter-spacing:-.2px}.mini-copy p{font-size:10px}.hero-footer{align-items:stretch;flex-direction:column;gap:15px}.pills{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}.pill{flex:none;padding:10px 15px;font-size:13px;min-height:42px}.arrows{justify-content:flex-end}.arrow{height:43px;width:43px;font-size:20px}.disclaimer{font-size:9px}}
-  @media(prefers-reduced-motion:reduce){.scene,.cards-set,.top-cta,.primary-cta,.arrow{transition:none}}
-
-  /* Portátil / escritorio: el hero entero cabe en una sola pantalla.
-     El espacio se reparte entre cabecera, contenido y controles, sin cortes. */
-  @media (min-width:991px) {
-    .hero-wrap {
-      height: 100vh;
-      height: 100dvh;
-      min-height: 0;
-      padding: clamp(8px,1.5vh,16px);
-      overflow: hidden;
-    }
-    .hero {
-      height: 100%;
-      min-height: 0;
-      padding: clamp(12px,2.2vh,25px) clamp(20px,3vw,44px) clamp(10px,1.7vh,20px);
-      border-radius: clamp(20px,2.2vw,32px);
-    }
-    .hero-header { flex: 0 0 auto; }
-    .hero-main {
-      flex: 1 1 auto;
-      min-height: 0;
-      grid-template-columns: minmax(0,1.16fr) minmax(0,.84fr);
-      gap: clamp(14px,2vw,32px);
-      align-items: center;
-      padding: clamp(5px,1.3vh,17px) 7px;
-    }
-    .hero-copy {
-      padding-bottom: 0;
-      max-width: 100%;
-      align-self: center;
-    }
-    .overline {
-      margin-bottom: clamp(8px,1.5vh,16px);
-      font-size: clamp(9px,1.1vw,12px);
-    }
-    h1 {
-      font-size: clamp(35px,min(5.1vw,7.8vh),70px);
-      line-height: 1.035;
-      max-width: 100%;
-    }
-    .hero-lead {
-      margin: clamp(9px,2vh,20px) 0 6px;
-      font-size: clamp(13px,min(1.4vw,2.25vh),19px);
-      line-height: 1.38;
-      max-width: 510px;
-    }
-    .hero-zone {
-      margin-bottom: clamp(12px,2.5vh,23px);
-      font-size: clamp(10px,1.1vw,12px);
-      line-height: 1.4;
-    }
-    .primary-cta {
-      min-height: clamp(43px,7vh,57px);
-      padding: 7px 8px 7px 20px;
-    }
-    .cards-stage {
-      width: 100%;
-      min-height: 0;
-      height: clamp(214px,42vh,308px);
-      align-self: center;
-      margin-bottom: 0;
-    }
-    .cards-set {
-      align-content: center;
-      gap: clamp(8px,1.3vh,13px);
-    }
-    .mini-card {
-      min-height: 0;
-      height: clamp(102px,19vh,139px);
-      grid-template-columns: clamp(86px,10vw,136px) minmax(0,1fr);
-      gap: clamp(8px,1vw,15px);
-      padding: clamp(7px,1vh,11px);
-      border-radius: 19px;
-    }
-    .mini-card img {
-      width: 100%;
-      height: 100%;
-      min-height: 0;
-      border-radius: 12px;
-    }
-    .mini-copy { gap: clamp(3px,.8vh,8px); }
-    .mini-copy h2 { font-size: clamp(15px,1.55vw,22px); }
-    .mini-copy p, .mini-copy strong { font-size: clamp(10px,1vw,13px); }
-    .mini-copy strong { margin-top: clamp(3px,.7vh,8px); }
-    .hero-footer { flex: 0 0 auto; }
-    .pill {
-      padding: clamp(8px,1.25vh,11px) clamp(13px,1.45vw,19px);
-      min-height: 40px;
-    }
-    .arrow {
-      width: clamp(40px,5.7vh,48px);
-      height: clamp(40px,5.7vh,48px);
-    }
-    .disclaimer {
-      flex: 0 0 auto;
-      margin-top: clamp(4px,.8vh,10px);
-      font-size: 9px;
-    }
+  .home-hero {
+    --side: clamp(26px,5.75vw,88px);
+    position:relative;isolation:isolate;
+    width:100%;height:100vh;height:100svh;
+    min-height:0;overflow:hidden;
+    background:#181d1b;color:#fff;
+    display:flex;flex-direction:column;
+    padding:0 var(--side);
   }
-  @media (min-width:991px) and (max-height:620px) {
-    .hero-nav a { padding: 10px 12px; }
-    .hero-main { padding-top: 2px; padding-bottom: 2px; }
-    h1 { font-size: clamp(34px,min(4.75vw,7.2vh),58px); }
-    .hero-lead { margin-top: 8px; font-size: 13px; }
-    .hero-zone { margin-bottom: 10px; }
-    .cards-stage { height: clamp(204px,40vh,250px); }
-    .mini-card { height: clamp(98px,17vh,116px); }
+  .hero-photo,.hero-shade,.hero-photo img {
+    position:absolute;inset:0;width:100%;height:100%;
   }
-  /* Pantallas táctiles: se conserva el flujo vertical natural.
-     Solo los ordenadores usan secciones a pantalla completa. */
+  .hero-photo{z-index:-2;overflow:hidden}
+  .hero-photo img{object-fit:cover;object-position:center 54%;filter:saturate(.74) contrast(.97)}
+  .hero-shade{
+    z-index:-1;pointer-events:none;
+    background:
+      linear-gradient(180deg,rgba(10,15,15,.18) 0%,rgba(9,14,13,.1) 28%,rgba(11,14,14,.38) 65%,rgba(9,12,12,.77) 100%),
+      linear-gradient(90deg,rgba(9,16,15,.55) 0%,rgba(11,16,16,.43) 43%,rgba(10,16,16,.12) 100%);
+  }
+  .site-header{
+    position:relative;z-index:5;
+    padding-top:clamp(25px,4.5vh,43px);
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+    flex:0 0 auto;
+  }
+  .wordmark {
+    display:inline-flex;align-items:baseline;
+    font-size:clamp(21px,2.1vw,26px);
+    font-weight:550;line-height:1;letter-spacing:-.055em;white-space:nowrap;
+    transition:opacity .22s;
+  }
+  .wordmark:hover{opacity:.78}
+  .wordmark-dot{color:#e4e7e4}
+  .desktop-nav{display:flex;align-items:center;gap:clamp(23px,2.7vw,44px)}
+  .desktop-nav a,.desktop-nav button{
+    padding:6px 0;margin:0;border:0;background:transparent;
+    color:#f6f7f5;font-size:11px;line-height:1.2;
+    font-weight:650;letter-spacing:.025em;white-space:nowrap;
+    transition:opacity .22s;cursor:pointer;
+  }
+  .desktop-nav a:hover,.desktop-nav button:hover{opacity:.6}
+  .mobile-menu-trigger,.mobile-navigation[hidden]{display:none}
+  .hero-content{
+    position:relative;z-index:1;
+    margin-top:clamp(67px,15.5vh,140px);
+    margin-bottom:auto;
+    max-width:980px;
+    flex:0 1 auto;
+  }
+  h1{
+    margin:0;max-width:960px;
+    font-size:clamp(46px,5.25vw,76px);
+    line-height:1.09;
+    letter-spacing:-.054em;font-weight:620;
+    text-wrap:balance;
+  }
+  h1 span{display:block}
+  .hero-content p{
+    margin:18px 0 0;
+    font-size:clamp(14px,1.27vw,18px);
+    font-weight:450;
+    letter-spacing:-.012em;
+    line-height:1.43;
+    max-width:670px;
+    color:#f2f3f0;
+  }
+  .hero-actions{display:flex;align-items:center;gap:16px;margin-top:21px}
+  .action{
+    border-radius:10px;
+    display:inline-flex;align-items:center;justify-content:center;
+    gap:17px;min-height:42px;padding:0 20px;
+    font-size:14px;font-weight:650;
+    transition:background .2s ease,color .2s ease,transform .2s ease;
+  }
+  .action:hover{transform:translateY(-2px)}
+  .action-primary{color:#202522;background:#f7f8f6;border:1px solid #f7f8f6}
+  .action-primary:hover{background:#fff}
+  .action-primary span{font-size:19px;font-weight:400}
+  .action-secondary{border:1px solid #ffffffad;color:white;background:#ffffff05}
+  .action-secondary:hover{background:#ffffff20}
+  .hero-bottom{
+    position:relative;z-index:1;
+    border-top:1px solid #ffffff57;
+    padding-top:19px;
+    margin-bottom:clamp(27px,4.7vh,44px);
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(460px,.96fr);
+    align-items:end;gap:30px;flex:0 0 auto;
+  }
+  .bottom-intro{
+    max-width:470px;
+    color:#edf0ec;
+    font-size:clamp(14px,1.2vw,17px);
+    line-height:1.5;
+    letter-spacing:-.01em;
+    margin:0 0 2px;
+  }
+  .hero-services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;text-align:center}
+  .hero-services div{display:flex;flex-direction:column;gap:5px;min-width:0}
+  .hero-services strong{font-size:clamp(27px,2.65vw,38px);line-height:1.1;font-weight:520;letter-spacing:-.045em;white-space:nowrap}
+  .hero-services span{font-size:clamp(11px,1vw,13px);line-height:1.4;color:#e3e7e2;font-weight:450}
+  .hero-dialog{
+    width:min(710px,calc(100% - 30px));max-height:min(85svh,800px);
+    padding:clamp(24px,4vw,45px);
+    border:1px solid #dddddb;border-radius:18px;
+    background:#f8f8f5;color:#212723;
+    box-shadow:0 25px 100px #0006;
+  }
+  .hero-dialog::backdrop{background:rgba(7,12,10,.75);backdrop-filter:blur(6px)}
+  .dialog-close{
+    position:absolute;right:16px;top:13px;
+    width:40px;height:40px;background:#eee;border:0;border-radius:50%;
+    font-size:26px;cursor:pointer;color:#1a211e;
+  }
+  .dialog-overline{font-size:11px;font-weight:750;letter-spacing:.16em;color:#69736d}
+  .hero-dialog h2{font-size:clamp(25px,4vw,40px);line-height:1.15;letter-spacing:-.045em;margin:10px 0 14px}
+  .hero-dialog>p:not(.dialog-overline){line-height:1.65;color:#536059}
+  .dialog-services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:25px 0}
+  .dialog-services article{padding:15px;border:1px solid #dcded9;border-radius:12px;background:white}
+  .dialog-services h3{font-size:15px;margin:0 0 8px}
+  .dialog-services p{font-size:13px;line-height:1.5;margin:0;color:#5e6861}
+  .dialog-contact{display:inline-flex;align-items:center;gap:17px;background:#202b25;color:white;border-radius:9px;padding:13px 19px;font-size:14px;font-weight:700}
+  @media(min-width:981px) and (max-height:730px){
+    .site-header{padding-top:clamp(23px,4vh,35px)}
+    .hero-content{margin-top:clamp(65px,14vh,110px)}
+    h1{font-size:clamp(43px,min(5.1vw,9vh),68px)}
+    .hero-bottom{margin-bottom:clamp(23px,3.9vh,34px);padding-top:16px}
+  }
+  @media(min-width:981px) and (max-height:590px){
+    .hero-content{margin-top:35px}
+    h1{font-size:clamp(39px,5vw,56px)}
+    .hero-content p{margin-top:12px;font-size:14px}
+    .hero-actions{margin-top:14px}
+    .hero-bottom{margin-bottom:18px}
+  }
+  @media(max-width:980px){
+    .home-hero{--side:clamp(22px,5vw,55px)}
+    .desktop-nav{display:none}
+    .mobile-menu-trigger{
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+      width:44px;height:44px;border:1px solid #ffffff8a;
+      border-radius:9px;background:rgba(17,23,19,.22);color:white;cursor:pointer;
+    }
+    .mobile-menu-trigger span{width:19px;height:2px;background:white;border-radius:4px}
+    .mobile-navigation:not([hidden]){
+      position:absolute;z-index:6;left:var(--side);right:var(--side);top:85px;
+      display:grid;gap:5px;padding:13px;
+      background:rgba(22,28,24,.94);backdrop-filter:blur(16px);
+      border:1px solid #fff4;border-radius:13px;box-shadow:0 20px 45px #0005;
+    }
+    .mobile-navigation a,.mobile-navigation button{
+      color:white;border:0;background:none;padding:12px;
+      text-align:left;text-decoration:none;font-size:14px;font-weight:600;border-radius:8px;
+    }
+    .mobile-navigation a:hover,.mobile-navigation button:hover{background:#ffffff15}
+    .hero-content{margin-top:clamp(95px,15vh,150px)}
+    h1{font-size:clamp(40px,5.9vw,65px)}
+    .hero-bottom{grid-template-columns:1fr;gap:27px;align-items:start}
+    .hero-services{text-align:left;max-width:660px}
+  }
+  @media(max-width:600px){
+    .home-hero{
+      min-height:100svh;height:auto;
+      padding:0 var(--side);
+    }
+    .site-header{padding-top:23px}
+    .wordmark{font-size:22px}
+    .hero-photo img{object-position:58% center}
+    .hero-shade{background:linear-gradient(180deg,rgba(12,17,16,.42) 0%,rgba(10,13,12,.58) 46%,rgba(7,9,9,.9) 100%),linear-gradient(90deg,rgba(10,15,13,.35),rgba(10,15,13,.1))}
+    .hero-content{
+      margin-top:clamp(86px,13vh,125px);
+      margin-bottom:clamp(73px,13vh,130px);
+      max-width:500px;
+      flex:1 0 auto;
+    }
+    h1{font-size:clamp(34px,9.3vw,50px);line-height:1.095;letter-spacing:-.056em}
+    h1 span{margin-top:3px}
+    .hero-content p{font-size:14px;line-height:1.5;margin-top:19px}
+    .desktop-break{display:none}
+    .hero-actions{gap:10px;flex-wrap:wrap;margin-top:22px}
+    .action{min-height:44px;font-size:12px;padding:0 15px;border-radius:8px;gap:10px}
+    .hero-bottom{padding-top:19px;gap:23px;margin-bottom:27px}
+    .bottom-intro{font-size:13px;max-width:460px}
+    .hero-services{gap:9px}
+    .hero-services strong{font-size:clamp(19px,5.8vw,29px)}
+    .hero-services span{font-size:10px}
+    .dialog-services{grid-template-columns:1fr}
+  }
+  @media(max-width:360px){
+    .hero-content{margin-top:80px;margin-bottom:65px}
+    h1{font-size:34px}
+    .action{font-size:11px}
+    .hero-services strong{font-size:20px}
+    .hero-services span{font-size:9px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .wordmark,.desktop-nav a,.desktop-nav button,.action{transition:none}
+  }
 </style>
