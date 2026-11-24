@@ -66,5 +66,24 @@ const cards = [
     .features-strip{padding:27px 16px;min-height:0}
     .feature-card{min-height:110px;flex-basis:220px;padding:17px 15px}
   }
+  /* La franja tiene altura compacta para compartir pantalla con "Nuestro oficio". */
+  @media(min-width:960px) and (min-height:650px){
+    .features-strip{
+      min-height:0;
+      padding:clamp(76px,9.4vh,87px) clamp(22px,3vw,48px) clamp(10px,1.6vh,15px);
+      scroll-margin-top:0;
+    }
+    .features-grid{gap:clamp(8px,1vw,15px);max-width:1530px}
+    .feature-card{
+      min-height:clamp(70px,9.8vh,87px);
+      padding:10px clamp(10px,1.15vw,19px);
+      gap:clamp(9px,1vw,14px);
+    }
+    .feature-card svg{
+      width:clamp(27px,2.6vw,39px);
+      height:clamp(27px,2.6vw,39px);
+    }
+    .feature-card h2{font-size:clamp(11px,1vw,14px)}
+  }
   @media(prefers-reduced-motion:reduce){.feature-card{transition:none}}
 </style>

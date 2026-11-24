@@ -58,13 +58,33 @@ b {
 }
 
 
-/* Las secciones principales pueden ajustarse por pantalla.
-   Esta fila de ventajas es una banda compacta como en la referencia,
-   por eso no debe ocupar una pantalla entera. */
-@media (min-width:991px) and (min-height:520px) {
-  html { scroll-snap-type: y proximity; }
-  main > section { scroll-snap-align: start; }
-  main > section.section-screen { min-height: 100vh; min-height: 100dvh; }
+/* Portátil: el hero, la información y la galería son pantallas completas.
+   La banda de cinco tarjetas y el bloque "Nuestro oficio" forman una pantalla.
+   No aplicar scroll forzado a móvil, zoom ni pantallas de poca altura. */
+@media (min-width: 960px) and (min-height: 650px) {
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 0;
+  }
+  main > .home-hero,
+  main > .work-screen,
+  main > .portfolio {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  main > .work-screen {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    height: 100vh;
+    height: 100svh;
+    min-height: 0;
+    overflow: hidden;
+    background: #fff;
+  }
+}
+/* Móvil/tablet: lectura natural y acceso a los enlaces sin saltos de scroll. */
+@media (max-width: 959px), (max-height: 649px) {
+  html { scroll-snap-type: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

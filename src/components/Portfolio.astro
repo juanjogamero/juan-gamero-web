@@ -173,6 +173,48 @@ const images = {
     .portfolio-more{grid-column:1}
     .portfolio-note{font-size:10px}
   }
+  /* La galería es una pantalla, no una sección de página y media.
+     Alineación superior: ninguna franja blanca extra al cambiar de sección. */
+  @media(min-width:960px) and (min-height:650px){
+    .portfolio{
+      height:100vh;
+      height:100svh;
+      min-height:0;
+      padding:clamp(77px,10vh,99px) clamp(22px,3.1vw,54px) clamp(13px,2.4vh,24px);
+      display:flex;
+      align-items:flex-start;
+      overflow:hidden;
+    }
+    .portfolio-inner{width:100%;margin:0 auto;}
+    .portfolio-grid{
+      height:clamp(415px,67svh,590px);
+      max-height:calc(100svh - 137px);
+      gap:clamp(10px,1.35vw,18px);
+    }
+    .portfolio-col{gap:clamp(9px,1.2vw,16px);}
+    .portfolio-intro{flex:0 0 29%;}
+    .portfolio-intro h2{
+      font-size:clamp(29px,min(3vw,5.5vh),46px);
+      margin-bottom:clamp(8px,1.2vh,12px);
+    }
+    .portfolio-intro p{
+      font-size:clamp(11px,min(1vw,1.7vh),14px);
+      line-height:1.47;
+    }
+    .portfolio-more{min-height:46px;}
+    .portfolio-note{font-size:10px;margin-top:8px;}
+  }
+  /* Dos fotos por fila en móvil para recorrer el catálogo sin una
+     sucesión interminable de imágenes enormes. */
+  @media(min-width:360px) and (max-width:510px){
+    .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+    .portfolio-intro{grid-column:1/-1}
+    .portfolio-photo{grid-column:auto!important;height:clamp(205px,58vw,265px)}
+    .portfolio-gate{height:clamp(205px,58vw,265px)}
+    .portfolio-more{grid-column:1/-1}
+    .photo-label{font-size:12px;right:11px;left:9px;bottom:10px;text-wrap:balance}
+    .photo-arrow{left:10px;bottom:10px;width:27px;height:27px;font-size:16px}
+  }
   @media(prefers-reduced-motion:reduce){
     .portfolio-photo img,.photo-label,.photo-arrow,.portfolio-more,.portfolio-more span{transition:none!important}
     .portfolio-photo:is(:hover,:focus-visible) img,
