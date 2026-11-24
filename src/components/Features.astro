@@ -73,7 +73,15 @@ const cards = [
       padding:clamp(76px,9.4vh,87px) clamp(22px,3vw,48px) clamp(10px,1.6vh,15px);
       scroll-margin-top:0;
     }
-    .features-grid{gap:clamp(8px,1vw,15px);max-width:1530px}
+    .features-grid{
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:clamp(8px,1vw,15px);
+      max-width:1530px;
+      overflow:visible;
+      padding:0;
+      scroll-snap-type:none;
+    }
     .feature-card{
       min-height:clamp(70px,9.8vh,87px);
       padding:10px clamp(10px,1.15vw,19px);
