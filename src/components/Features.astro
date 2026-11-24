@@ -69,9 +69,12 @@ const cards = [
   /* La franja tiene altura compacta para compartir pantalla con "Nuestro oficio". */
   @media(min-width:960px) and (min-height:650px){
     .features-strip{
+      display:flex;
+      align-items:center;
+      justify-content:center;
       min-height:0;
-      padding:clamp(76px,9.4vh,87px) clamp(22px,3vw,48px) clamp(10px,1.6vh,15px);
-      scroll-margin-top:0;
+      padding:clamp(25px,3.5vh,34px) clamp(22px,3vw,48px);
+      scroll-margin-top:82px;
     }
     .features-grid{
       display:grid;
