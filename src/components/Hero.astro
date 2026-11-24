@@ -27,8 +27,8 @@ const services = [
     <h1 id="hero-title">Carpintería metálica. <span>Hierro hecho para durar.</span></h1>
     <p>Rejas, puertas, barandas y cubiertas de hierro a medida.<br class="desktop-break" /> En Casariche y pueblos cercanos.</p>
     <div class="hero-actions">
-      <a class="action action-primary" href={"tel:" + phone}>Pedir presupuesto <span aria-hidden="true">→</span></a>
-      <a class="action action-secondary" href={instagram} target="_blank" rel="noopener noreferrer">Ver trabajos</a>
+      <a class="action action-primary" href={"tel:" + phone}><span class="action-label">Pedir presupuesto</span><span class="action-icon" aria-hidden="true">↗</span></a>
+      <a class="action action-secondary" href={instagram} target="_blank" rel="noopener noreferrer"><span class="action-label">Ver trabajos</span><span class="action-icon action-icon-outline" aria-hidden="true">↗</span></a>
     </div>
   </div>
 
@@ -50,7 +50,7 @@ const services = [
   <div class="dialog-services">
     {services.map(service => <article><h3>{service.title}</h3><p>{service.text}</p></article>)}
   </div>
-  <a class="dialog-contact" href={"tel:" + phone}>Consultar mi trabajo <span aria-hidden="true">→</span></a>
+  <a class="dialog-contact" href={"tel:" + phone}><span class="dialog-label">Consultar mi trabajo</span><span class="dialog-icon" aria-hidden="true">↗</span></a>
 </dialog>
 
 <dialog class="hero-dialog" id="areas-dialog" aria-labelledby="areas-dialog-heading">
@@ -58,7 +58,7 @@ const services = [
   <p class="dialog-overline">CERCA DE TI</p>
   <h2 id="areas-dialog-heading">Carpintería metálica en Casariche y alrededores</h2>
   <p>El taller trabaja desde Casariche y atiende encargos en poblaciones próximas como Herrera, Estepa, Pedrera, La Roda de Andalucía, Puente Genil y Osuna. Consulta disponibilidad para tu localidad.</p>
-  <a class="dialog-contact" href={"tel:" + phone}>Preguntar por mi localidad <span aria-hidden="true">→</span></a>
+  <a class="dialog-contact" href={"tel:" + phone}><span class="dialog-label">Preguntar por mi localidad</span><span class="dialog-icon" aria-hidden="true">↗</span></a>
 </dialog>
 
 <script>
@@ -380,4 +380,51 @@ const services = [
   .dialog-contact {display:inline-flex;align-items:center;gap:17px;background:#202b25;color:white;border-radius:9px;padding:13px 19px;font-size:14px;font-weight:700;}
   @media(max-width:600px){.dialog-services {grid-template-columns:1fr;}}
   @media(prefers-reduced-motion:reduce){.action,.desktop-nav a,.desktop-nav button {transition:none;}}
+
+  /* Botones más orgánicos, sin alterar la composición del hero. */
+  .action {
+    border-radius:999px;
+    gap:12px;
+    padding-left:20px;
+    padding-right:8px;
+    overflow:hidden;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1),background-color .3s,box-shadow .3s;
+  }
+  .action-label,.dialog-label {
+    display:inline-block;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .action-icon,.dialog-icon {
+    display:inline-grid;
+    width:29px;height:29px;
+    place-items:center;
+    flex:none;
+    border-radius:50%;
+    background:rgba(22,32,25,.1);
+    font-size:19px;
+    line-height:1;
+    transition:transform .48s cubic-bezier(.2,.85,.2,1),background-color .3s;
+  }
+  .action-icon-outline{background:rgba(255,255,255,.13)}
+  .action:is(:hover,:focus-visible){transform:translateY(-3px);box-shadow:0 10px 24px #0004}
+  .action:is(:hover,:focus-visible) .action-label,
+  .dialog-contact:is(:hover,:focus-visible) .dialog-label{transform:translateX(4px)}
+  .action:is(:hover,:focus-visible) .action-icon,
+  .dialog-contact:is(:hover,:focus-visible) .dialog-icon{transform:rotate(45deg) translate(2px,-1px)}
+  .action:is(:hover,:focus-visible) .action-icon{background:rgba(22,32,25,.2)}
+  .action:is(:hover,:focus-visible) .action-icon-outline{background:rgba(255,255,255,.25)}
+  .dialog-contact{border-radius:999px;padding:7px 8px 7px 18px;transition:transform .3s,background-color .3s,box-shadow .3s}
+  .dialog-icon{background:rgba(255,255,255,.12)}
+  .dialog-contact:is(:hover,:focus-visible){transform:translateY(-2px);background:#34453a;box-shadow:0 10px 20px #0002}
+  @media(max-width:600px){
+    .action{border-radius:999px;min-height:44px;padding:6px 8px 6px 15px;gap:8px}
+    .action-icon{width:27px;height:27px;font-size:18px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .action,.action-label,.action-icon,.dialog-contact,.dialog-label,.dialog-icon{transition:none!important}
+    .action:is(:hover,:focus-visible),.action:is(:hover,:focus-visible) .action-label,
+    .action:is(:hover,:focus-visible) .action-icon,.dialog-contact:is(:hover,:focus-visible),
+    .dialog-contact:is(:hover,:focus-visible) .dialog-label,
+    .dialog-contact:is(:hover,:focus-visible) .dialog-icon{transform:none!important}
+  }
 </style>

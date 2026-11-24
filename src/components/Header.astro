@@ -11,14 +11,14 @@ const instagram = 'https://www.instagram.com/carpinteriametalica.juangamero/';
     </a>
 
     <nav class="header-nav" aria-label="Navegación principal">
-      <a href="#inicio">Inicio</a>
-      <a href="#servicios">Servicios</a>
-      <a href={instagram} target="_blank" rel="noopener noreferrer">Trabajos <span class="external-mark" aria-hidden="true">↗</span></a>
-      <button type="button" data-open-modal="areas">Zona de trabajo</button>
+      <a href="#inicio"><span class="nav-label">Inicio</span></a>
+      <a href="#servicios"><span class="nav-label">Servicios</span></a>
+      <a href={instagram} target="_blank" rel="noopener noreferrer"><span class="nav-label">Trabajos</span><span class="external-mark" aria-hidden="true">↗</span></a>
+      <button type="button" data-open-modal="areas"><span class="nav-label">Zona de trabajo</span></button>
     </nav>
 
     <div class="header-actions">
-      <a class="header-contact" href={"tel:" + phone}>Pedir presupuesto <span aria-hidden="true">↗</span></a>
+      <a class="header-contact" href={"tel:" + phone}><span class="contact-label">Pedir presupuesto</span><span class="contact-icon" aria-hidden="true">↗</span></a>
       <button class="header-menu-button" id="header-menu-button" type="button" aria-expanded="false" aria-controls="header-mobile-nav" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
@@ -308,5 +308,78 @@ const instagram = 'https://www.instagram.com/carpinteriametalica.juangamero/';
     .header-nav button::after,
     .header-mobile-nav a,
     .header-mobile-nav button { transition: none !important; animation: none !important; }
+  }
+
+  /* Hover refinado: el texto se eleva y la flecha describe un giro. */
+  .header-nav .nav-label {
+    display:inline-block;
+    transition:transform .36s cubic-bezier(.2,.8,.2,1),letter-spacing .36s ease;
+  }
+  .header-nav a:is(:hover,:focus-visible) .nav-label,
+  .header-nav button:is(:hover,:focus-visible) .nav-label {
+    transform:translateY(-3px);
+    letter-spacing:.012em;
+  }
+  .header-nav a::after,.header-nav button::after {
+    height:2px;
+    bottom:4px;
+    transform:translateY(3px) scaleX(0);
+    transform-origin:left center;
+    transition:transform .38s cubic-bezier(.2,.8,.2,1);
+  }
+  .header-nav a:is(:hover,:focus-visible)::after,
+  .header-nav button:is(:hover,:focus-visible)::after {
+    transform:translateY(0) scaleX(1);
+  }
+  .header-nav .external-mark {
+    display:inline-block;
+    transition:transform .42s cubic-bezier(.2,.8,.2,1);
+  }
+  .header-nav a:is(:hover,:focus-visible) .external-mark {
+    transform:translate(2px,-1px) rotate(45deg);
+  }
+  .header-contact {
+    border-radius:999px;
+    gap:11px;
+    overflow:hidden;
+    transition:background-color .3s,transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .3s;
+  }
+  .header-contact .contact-label {
+    display:inline-block;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .header-contact .contact-icon {
+    display:inline-grid;
+    width:26px;height:26px;
+    place-items:center;
+    border-radius:50%;
+    background:rgba(30,40,33,.08);
+    transition:transform .45s cubic-bezier(.2,.85,.2,1),background-color .25s;
+  }
+  .is-scrolled .header-contact .contact-icon{background:rgba(255,255,255,.14)}
+  .header-contact:is(:hover,:focus-visible){transform:translateY(-2px);box-shadow:0 9px 22px rgba(0,0,0,.14)}
+  .header-contact:is(:hover,:focus-visible) .contact-label{transform:translateX(3px)}
+  .header-contact:is(:hover,:focus-visible) .contact-icon{transform:rotate(45deg) translate(2px,-1px);background:rgba(30,40,33,.17)}
+  .is-scrolled .header-contact:is(:hover,:focus-visible) .contact-icon{background:rgba(255,255,255,.26)}
+  .header-menu-button{border-radius:50%;transition:transform .28s ease,background-color .28s ease}
+  .header-menu-button:hover{transform:scale(1.05)}
+  .header-menu-button span{transition:transform .28s ease}
+  .header-menu-button:hover span:first-child{transform:translateX(-3px)}
+  .header-menu-button:hover span:last-child{transform:translateX(3px)}
+  @media(max-width:420px){
+    .header-contact .contact-label{display:none}
+    .header-contact .contact-icon{width:25px;height:25px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .header-nav .nav-label,.header-nav .external-mark,
+    .header-contact,.header-contact .contact-label,.header-contact .contact-icon,
+    .header-menu-button,.header-menu-button span {transition:none!important}
+    .header-nav a:is(:hover,:focus-visible) .nav-label,
+    .header-nav button:is(:hover,:focus-visible) .nav-label,
+    .header-nav a:is(:hover,:focus-visible) .external-mark,
+    .header-contact:is(:hover,:focus-visible),
+    .header-contact:is(:hover,:focus-visible) .contact-label,
+    .header-contact:is(:hover,:focus-visible) .contact-icon,
+    .header-menu-button:hover,.header-menu-button:hover span{transform:none!important}
   }
 </style>
