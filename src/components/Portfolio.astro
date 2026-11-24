@@ -1,0 +1,181 @@
+---
+const instagram = 'https://www.instagram.com/carpinteriametalica.juangamero/';
+const images = {
+  roof: {
+    src: 'https://images.pexels.com/photos/10682522/pexels-photo-10682522.jpeg?auto=compress&cs=tinysrgb&w=1050',
+    alt: 'Fotografía ilustrativa de una cubierta con estructura de acero',
+    label: 'Cubiertas y estructuras'
+  },
+  grille: {
+    src: 'https://images.pexels.com/photos/19962638/pexels-photo-19962638.jpeg?auto=compress&cs=tinysrgb&w=1050',
+    alt: 'Fotografía ilustrativa de una ventana con reja de hierro forjado',
+    label: 'Rejas y forja'
+  },
+  railing: {
+    src: 'https://images.pexels.com/photos/10790283/pexels-photo-10790283.jpeg?auto=compress&cs=tinysrgb&w=1050',
+    alt: 'Fotografía ilustrativa de un balcón con baranda de hierro',
+    label: 'Barandas de hierro'
+  },
+  gate: {
+    src: 'https://images.pexels.com/photos/39743614/pexels-photo-39743614.jpeg?auto=compress&cs=tinysrgb&w=1350',
+    alt: 'Fotografía ilustrativa de una vivienda con cancela de hierro',
+    label: 'Puertas y cancelas'
+  }
+};
+---
+<section class="portfolio" id="galeria" aria-labelledby="portfolio-title">
+  <div class="portfolio-inner">
+    <div class="portfolio-grid">
+      <div class="portfolio-col portfolio-col-left">
+        <div class="portfolio-intro">
+          <h2 id="portfolio-title">Trabajos de hierro<br />a medida</h2>
+          <p>Rejas, puertas, barandas, tejados de chapa y estructuras metálicas para viviendas, fincas y naves de Casariche y alrededores.</p>
+        </div>
+        <a class="portfolio-photo portfolio-roof" href={instagram} target="_blank" rel="noopener noreferrer" aria-label="Ver trabajos reales de cubiertas y estructuras en el Instagram del taller">
+          <img src={images.roof.src} alt={images.roof.alt} width="850" height="1050" loading="lazy" decoding="async"/>
+          <span class="photo-label">{images.roof.label}</span>
+          <span class="photo-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div class="portfolio-col portfolio-col-center">
+        <a class="portfolio-photo portfolio-grille" href={instagram} target="_blank" rel="noopener noreferrer" aria-label="Ver trabajos reales de rejas y forja en el Instagram del taller">
+          <img src={images.grille.src} alt={images.grille.alt} width="850" height="740" loading="lazy" decoding="async"/>
+          <span class="photo-label">{images.grille.label}</span>
+          <span class="photo-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="portfolio-photo portfolio-railing" href={instagram} target="_blank" rel="noopener noreferrer" aria-label="Ver trabajos reales de barandas en el Instagram del taller">
+          <img src={images.railing.src} alt={images.railing.alt} width="850" height="640" loading="lazy" decoding="async"/>
+          <span class="photo-label">{images.railing.label}</span>
+          <span class="photo-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div class="portfolio-col portfolio-col-right">
+        <a class="portfolio-photo portfolio-gate" href={instagram} target="_blank" rel="noopener noreferrer" aria-label="Ver trabajos reales de puertas y cancelas en el Instagram del taller">
+          <img src={images.gate.src} alt={images.gate.alt} width="850" height="1140" loading="lazy" decoding="async"/>
+          <span class="photo-label">{images.gate.label}</span>
+          <span class="photo-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="portfolio-more" href={instagram} target="_blank" rel="noopener noreferrer">
+          <span>Ver más trabajos</span>
+          <span class="portfolio-more-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+    <p class="portfolio-note">Fotos de ejemplo de Pexels; no son trabajos del taller. Consulta sus proyectos reales en Instagram.</p>
+  </div>
+</section>
+<style>
+  .portfolio {
+    display:flex;align-items:center;justify-content:center;
+    min-height:100svh;
+    padding:clamp(84px,10.4vh,115px) clamp(22px,3.1vw,54px) clamp(28px,4.4vh,56px);
+    background:#fff;color:#1b231d;
+    scroll-margin-top:0;
+  }
+  .portfolio-inner{max-width:1540px;width:100%;margin:0 auto;min-width:0}
+  .portfolio-grid{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:clamp(10px,1.5vw,22px);
+    height:clamp(475px,75vh,730px);
+  }
+  .portfolio-col{display:flex;flex-direction:column;min-width:0;min-height:0;gap:clamp(10px,1.5vw,20px)}
+  .portfolio-intro{flex:0 0 31%;padding:clamp(3px,.7vw,10px) clamp(0px,.3vw,6px) 0}
+  .portfolio-intro h2{
+    margin:0 0 clamp(10px,1.3vw,20px);
+    font-family:inherit;font-size:clamp(32px,3.18vw,53px);
+    line-height:1.08;font-weight:750;letter-spacing:-.057em;color:#171d18;
+  }
+  .portfolio-intro p{
+    margin:0;max-width:390px;font-size:clamp(12px,1.05vw,16px);
+    line-height:1.56;font-weight:490;letter-spacing:-.012em;color:#566059;
+  }
+  .portfolio-photo{
+    position:relative;isolation:isolate;display:block;
+    flex:1 1 0;min-height:0;min-width:0;
+    overflow:hidden;border-radius:clamp(15px,1.6vw,23px);
+    background:#303a32;color:#fff;text-decoration:none;
+  }
+  .portfolio-photo::after{
+    content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(10,13,11,.02) 41%,rgba(10,13,11,.10) 64%,rgba(9,11,10,.78) 100%);
+  }
+  .portfolio-photo img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    filter:saturate(.82);transform:scale(1.003);
+    transition:transform .7s cubic-bezier(.2,.75,.25,1),filter .65s;
+  }
+  .portfolio-photo:is(:hover,:focus-visible) img{transform:scale(1.065);filter:saturate(.95)}
+  .portfolio-grille{flex:0 0 55%}
+  .portfolio-railing{flex:1 1 0}
+  .portfolio-gate{flex:1 1 0}
+  .portfolio-gate img{object-position:55% center}
+  .photo-label{
+    position:absolute;z-index:1;bottom:clamp(14px,1.45vw,23px);right:clamp(14px,1.45vw,23px);
+    color:#fff;text-align:right;font-size:clamp(12px,1.05vw,16px);
+    font-weight:760;letter-spacing:-.02em;line-height:1.2;text-shadow:0 2px 8px #0007;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .photo-arrow{
+    position:absolute;z-index:1;left:18px;bottom:17px;width:34px;height:34px;
+    display:grid;place-items:center;border-radius:50%;background:white;color:#233028;
+    font-size:19px;opacity:0;transform:translateY(9px) rotate(-20deg);
+    transition:opacity .3s,transform .38s cubic-bezier(.2,.8,.2,1);
+  }
+  .portfolio-photo:is(:hover,:focus-visible) .photo-label{transform:translateY(-3px)}
+  .portfolio-photo:is(:hover,:focus-visible) .photo-arrow{opacity:1;transform:translateY(0) rotate(0)}
+  .portfolio-more{
+    min-height:56px;flex:none;
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    border:1.5px solid #a1a9a1;border-radius:999px;
+    padding:0 18px;text-decoration:none;color:#263029;background:#fff;
+    font-size:clamp(12px,1.03vw,15px);font-weight:750;letter-spacing:-.013em;
+    transition:background .28s,transform .28s,border-color .28s,box-shadow .28s;
+  }
+  .portfolio-more span:first-child{transition:transform .3s ease}
+  .portfolio-more-arrow{display:inline-grid;place-items:center;width:26px;height:26px;font-size:19px;transition:transform .38s cubic-bezier(.2,.8,.2,1)}
+  .portfolio-more:hover{background:#f3f6f2;transform:translateY(-2px);border-color:#5f7665;box-shadow:0 8px 19px #1a312013}
+  .portfolio-more:hover span:first-child{transform:translateX(2px)}
+  .portfolio-more:hover .portfolio-more-arrow{transform:rotate(45deg) translate(2px,-1px)}
+  .portfolio-photo:focus-visible,.portfolio-more:focus-visible{outline:3px solid #496a50;outline-offset:4px}
+  .portfolio-note{font-size:11px;color:#838b82;margin:11px 0 0;text-align:right;line-height:1.4}
+  @media(min-width:1101px) and (max-height:760px){
+    .portfolio{padding-top:clamp(74px,11vh,89px);padding-bottom:clamp(20px,3vh,35px)}
+    .portfolio-grid{height:clamp(390px,75vh,580px)}
+    .portfolio-intro h2{font-size:clamp(29px,3vw,44px);margin-bottom:9px}
+    .portfolio-more{min-height:48px}
+  }
+  @media(max-width:1100px){
+    .portfolio{min-height:0;padding:92px 24px 40px}
+    .portfolio-grid{height:clamp(450px,56vw,655px);gap:12px}
+    .portfolio-col{gap:12px}
+    .portfolio-intro h2{font-size:clamp(25px,3.2vw,38px)}
+    .portfolio-intro p{font-size:12px}
+    .portfolio-more{min-height:48px;font-size:12px}
+  }
+  @media(max-width:740px){
+    .portfolio{padding:92px 18px 40px}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));height:auto;gap:12px}
+    .portfolio-col{display:contents}
+    .portfolio-intro{grid-column:1/-1;padding:0 0 8px}
+    .portfolio-intro h2{font-size:clamp(34px,7vw,46px);margin-bottom:12px}
+    .portfolio-intro p{font-size:14px;max-width:570px}
+    .portfolio-photo{height:clamp(210px,41vw,345px);flex:none}
+    .portfolio-gate{height:clamp(270px,50vw,410px)}
+    .portfolio-more{grid-column:1/-1;height:51px}
+    .portfolio-note{text-align:left}
+  }
+  @media(max-width:510px){
+    .portfolio-grid{grid-template-columns:1fr;gap:11px}
+    .portfolio-intro h2{font-size:clamp(33px,8.6vw,44px)}
+    .portfolio-photo{grid-column:1;height:clamp(235px,65vw,355px)}
+    .portfolio-gate{height:clamp(295px,77vw,430px)}
+    .photo-label{font-size:15px}
+    .portfolio-more{grid-column:1}
+    .portfolio-note{font-size:10px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .portfolio-photo img,.photo-label,.photo-arrow,.portfolio-more,.portfolio-more span{transition:none!important}
+    .portfolio-photo:is(:hover,:focus-visible) img,
+    .portfolio-photo:is(:hover,:focus-visible) .photo-label,.portfolio-more:hover{transform:none!important}
+  }
+</style>
