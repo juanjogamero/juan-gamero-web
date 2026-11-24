@@ -1,7 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
----
+import Hero from '../components/Hero.astro';
 
-<BaseLayout>
-  <main id="contenido"></main>
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'HomeAndConstructionBusiness',
+  name: 'Carpintería Metálica Juan Gamero',
+  description: 'Trabajos de hierro y carpintería metálica a medida en Casariche y pueblos cercanos.',
+  areaServed: ['Casariche', 'Herrera', 'Estepa', 'Pedrera', 'Puente Genil', 'La Roda de Andalucía', 'Osuna'],
+  telephone: '+34 675 731 867',
+  sameAs: ['https://www.instagram.com/carpinteriametalica.juangamero/'],
+  url: 'https://metalicasgamero.es/'
+};
+---
+<BaseLayout
+  title="Carpintería metálica en Casariche y alrededores | Juan Gamero"
+  description="Carpintería metálica en Casariche: puertas de hierro, rejas, forja, tejados de chapa, barandas y estructuras. Trabajos a medida en Herrera, Estepa y pueblos cercanos."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+  <main>
+    <Hero />
+  </main>
 </BaseLayout>

@@ -1,0 +1,207 @@
+---
+const phone = '+34675731867';
+const slides = [
+  {
+    label: 'Rejas',
+    title: 'Rejas y forja',
+    summary: 'Rejas para ventanas y patios',
+    detail: 'Hierro trabajado a medida',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1900&q=82',
+    cards: [
+      { title: 'Rejas de hierro', subtitle: 'Ventanas, patios y viviendas', tag: 'A medida', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=480&q=75' },
+      { title: 'Forja y detalles', subtitle: 'Diseños clásicos y actuales', tag: 'Hierro y forja', image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=480&q=75' }
+    ]
+  },
+  {
+    label: 'Puertas',
+    title: 'Puertas de hierro',
+    summary: 'Accesos para casas y fincas',
+    detail: 'Fabricación y montaje',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1900&q=82',
+    cards: [
+      { title: 'Puertas metálicas', subtitle: 'Patios, cocheras y entradas', tag: 'A medida', image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=480&q=75' },
+      { title: 'Puertas de campo', subtitle: 'Parcelas, fincas y naves', tag: 'Uso diario', image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=480&q=75' }
+    ]
+  },
+  {
+    label: 'Tejados',
+    title: 'Tejados de chapa',
+    summary: 'Cubiertas para patios y cocheras',
+    detail: 'Chapa e imitación teja',
+    image: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1900&q=82',
+    cards: [
+      { title: 'Cubiertas de chapa', subtitle: 'Tejados para patios y naves', tag: 'Chapa y chapa teja', image: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=480&q=75' },
+      { title: 'Porches metálicos', subtitle: 'Espacios cubiertos y cocheras', tag: 'A medida', image: 'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=480&q=75' }
+    ]
+  },
+  {
+    label: 'Estructuras',
+    title: 'Estructuras metálicas',
+    summary: 'Naves, cerramientos y soldadura',
+    detail: 'Trabajos de hierro y arreglos',
+    image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1900&q=82',
+    cards: [
+      { title: 'Naves y cerramientos', subtitle: 'Estructuras para campo y negocio', tag: 'Metal a medida', image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=480&q=75' },
+      { title: 'Barandas y soldadura', subtitle: 'Pasamanos, reparaciones y forja', tag: 'Más trabajos', image: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=480&q=75' }
+    ]
+  }
+];
+---
+
+<section class="hero-wrap" aria-label="Carpintería Metálica Juan Gamero">
+  <div class="hero" id="inicio">
+    <div class="hero-scenes" aria-hidden="true">
+      {slides.map((slide, i) => <img class:list={['scene',{'active':i===0}]} src={slide.image} alt="" fetchpriority={i===0?'high':undefined} loading={i===0?'eager':'lazy'} decoding="async" />)}
+    </div>
+    <div class="hero-tint" aria-hidden="true"></div>
+
+    <header class="hero-header">
+      <a class="brand" href="#inicio" aria-label="Carpintería Metálica Juan Gamero, inicio">
+        <span class="brand-icon">JG</span>
+        <span class="brand-words"><strong>Juan Gamero</strong><small>CARPINTERÍA METÁLICA</small></span>
+      </a>
+      <nav class="hero-nav" aria-label="Menú principal">
+        <a href="#tipos">Servicios</a>
+        <a href="https://www.instagram.com/carpinteriametalica.juangamero/" target="_blank" rel="noopener noreferrer">Trabajos</a>
+        <a href="#zona">Dónde trabajamos</a>
+        <a href="tel:${phone}">Contacto</a>
+      </nav>
+      <a class="top-cta" href="tel:${phone}">Pedir presupuesto <span aria-hidden="true">↗</span></a>
+      <button class="menu-button" id="hero-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="hero-mobile-nav"><span></span><span></span><span></span></button>
+    </header>
+    <nav class="mobile-menu" id="hero-mobile-nav" aria-label="Menú móvil" hidden>
+      <a href="#tipos">Servicios</a>
+      <a href="https://www.instagram.com/carpinteriametalica.juangamero/" target="_blank" rel="noopener noreferrer">Trabajos</a>
+      <a href="#zona">Dónde trabajamos</a>
+      <a href="tel:${phone}">Contacto</a>
+    </nav>
+
+    <div class="hero-main">
+      <div class="hero-copy">
+        <p class="overline">HIERRO, FORJA Y SOLUCIONES A MEDIDA · CASARICHE</p>
+        <h1>Carpintería metálica en Casariche y alrededores</h1>
+        <p class="hero-lead">Puertas de hierro, rejas, barandas, tejados de chapa y estructuras metálicas para viviendas, fincas y negocios.</p>
+        <p class="hero-zone" id="zona">Trabajamos en Casariche, Herrera, Estepa, Pedrera, Puente Genil, La Roda de Andalucía, Osuna y pueblos cercanos.</p>
+        <a class="primary-cta" href="tel:${phone}">Pedir presupuesto <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <div class="cards-stage" aria-label="Ejemplos de nuestros servicios">
+        {slides.map((slide, slideIndex) => (
+          <div class:list={['cards-set',{'active':slideIndex===0}]} data-set={slideIndex}>
+            {slide.cards.map(card => (
+              <article class="mini-card">
+                <img src={card.image} loading="lazy" decoding="async" alt="Foto de referencia de banco de imágenes para este tipo de trabajo" />
+                <div class="mini-copy"><h2>{card.title}</h2><p>{card.subtitle}</p><strong>{card.tag}</strong></div>
+              </article>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="hero-footer" id="tipos">
+      <div class="pills" role="group" aria-label="Seleccionar tipo de trabajo">
+        {slides.map((slide,i) => <button class:list={['pill',{'active':i===0}]} type="button" data-slide={i} aria-pressed={i===0?'true':'false'}>{slide.label}</button>)}
+      </div>
+      <div class="arrows">
+        <span class="count" id="hero-count">01 / 04</span>
+        <button class="arrow" type="button" aria-label="Trabajo anterior" data-direction="-1">←</button>
+        <button class="arrow" type="button" aria-label="Siguiente trabajo" data-direction="1">→</button>
+      </div>
+    </div>
+    <p class="disclaimer">Imágenes de muestra de Unsplash; no son fotografías de trabajos de Juan Gamero.</p>
+  </div>
+</section>
+
+<script>
+  const root = document.querySelector<HTMLElement>('.hero');
+  if (root) {
+    const sceneList = Array.from(root.querySelectorAll<HTMLElement>('.scene'));
+    const sets = Array.from(root.querySelectorAll<HTMLElement>('.cards-set'));
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-slide]'));
+    const counter = root.querySelector<HTMLElement>('#hero-count');
+    const menuButton = root.querySelector<HTMLButtonElement>('#hero-menu-toggle');
+    const menu = root.querySelector<HTMLElement>('#hero-mobile-nav');
+    let active = 0;
+    let timer: number | undefined;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function render(next: number) {
+      active = (next + tabs.length) % tabs.length;
+      sceneList.forEach((el,i) => el.classList.toggle('active', i===active));
+      sets.forEach((el,i) => el.classList.toggle('active', i===active));
+      tabs.forEach((el,i) => { el.classList.toggle('active',i===active); el.setAttribute('aria-pressed',String(i===active)); });
+      if (counter) counter.textContent = String(active + 1).padStart(2,'0') + ' / 04';
+    }
+    function resetTimer() {
+      window.clearInterval(timer);
+      if (!reducedMotion) timer=window.setInterval(() => { if (!document.hidden && !root.matches(':hover') && !root.contains(document.activeElement)) render(active+1); },8000);
+    }
+    tabs.forEach((tab,i)=>tab.addEventListener('click',()=>{render(i);resetTimer();}));
+    root.querySelectorAll<HTMLButtonElement>('[data-direction]').forEach(button=>button.addEventListener('click',()=>{render(active+Number(button.dataset.direction));resetTimer();}));
+    menuButton?.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));menuButton.setAttribute('aria-label',open?'Abrir menú':'Cerrar menú');if(menu)menu.hidden=open;});
+    menu?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{menu.hidden=true;menuButton?.setAttribute('aria-expanded','false');}));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape' && menu){menu.hidden=true;menuButton?.setAttribute('aria-expanded','false');}});
+    resetTimer();
+  }
+</script>
+
+<style>
+  :global(*),:global(*::before),:global(*::after){box-sizing:border-box}
+  :global(body){margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f0f1f1}
+  :global(a){color:inherit;text-decoration:none}
+  :global(button){font:inherit;cursor:pointer}
+  :global(a:focus-visible),:global(button:focus-visible){outline:3px solid #fff;outline-offset:3px}
+  .hero-wrap{padding:20px;min-height:100svh}
+  .hero{isolation:isolate;position:relative;min-height:calc(100svh - 40px);border-radius:32px;overflow:hidden;background:#366fa9;color:white;padding:29px 44px 22px;display:flex;flex-direction:column;box-shadow:0 15px 50px #102c4930}
+  .hero-scenes,.hero-tint,.scene{position:absolute;inset:0;width:100%;height:100%}
+  .hero-scenes{z-index:-2;overflow:hidden}
+  .scene{object-fit:cover;object-position:center;opacity:0;transform:scale(1.035);transition:opacity .65s ease,transform 1.2s ease;filter:saturate(.85)}
+  .scene.active{opacity:1;transform:scale(1)}
+  .hero-tint{z-index:-1;background:linear-gradient(90deg,#1a4a7ad9 0%,#265d91ba 32%,#2d73ad75 67%,#1a35555c 100%),linear-gradient(0deg,#122136a8 0%,transparent 36%)}
+  .hero-header{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;z-index:5}
+  .brand{display:inline-flex;align-items:center;gap:11px;min-width:0;width:max-content}
+  .brand-icon{width:48px;height:48px;border:3px solid #fff8;border-radius:50%;display:grid;place-items:center;background:#cc4541;font-size:19px;font-weight:900;letter-spacing:-1px;box-shadow:0 8px 20px #131b2e45}
+  .brand-words{display:flex;flex-direction:column;gap:3px;min-width:0}
+  .brand-words strong{font-size:clamp(23px,2.1vw,32px);font-weight:750;letter-spacing:-1.2px;line-height:1}
+  .brand-words small{font-size:9px;font-weight:750;letter-spacing:2.1px;white-space:nowrap;color:#fffd}
+  .hero-nav{display:flex;align-items:center;gap:3px;padding:6px;border:1px solid #ffffff24;border-radius:70px;background:#ffffff30;backdrop-filter:blur(15px);white-space:nowrap}
+  .hero-nav a{padding:12px 16px;border-radius:40px;font-size:13px;font-weight:550;color:#fff;transition:background .2s}
+  .hero-nav a:hover{background:#ffffff35}
+  .top-cta,.primary-cta{background:#fff;color:#202b35;border:0;border-radius:80px;display:inline-flex;align-items:center;justify-content:space-between;gap:20px;font-size:14px;font-weight:700;padding:9px 9px 9px 24px;transition:transform .22s ease,box-shadow .22s ease}
+  .top-cta:hover,.primary-cta:hover{transform:translateY(-3px);box-shadow:0 12px 28px #071a3440}
+  .top-cta{justify-self:end;white-space:nowrap}
+  .top-cta span,.primary-cta span{height:33px;width:33px;display:grid;place-items:center;font-size:22px;line-height:1}
+  .menu-button{display:none}
+  .mobile-menu[hidden]{display:none!important}
+  .hero-main{flex:1;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;padding:clamp(75px,9vh,145px) 12px 50px;min-height:0}
+  .hero-copy{max-width:730px;align-self:center;padding-bottom:65px}
+  .overline{font-size:12px;font-weight:800;letter-spacing:1.6px;margin:0 0 21px;color:#fffe}
+  h1{margin:0;font-size:clamp(48px,5.35vw,80px);max-width:770px;font-weight:660;line-height:1.04;letter-spacing:-.057em;text-wrap:balance}
+  .hero-lead{margin:25px 0 10px;font-size:clamp(16px,1.35vw,21px);line-height:1.46;max-width:515px;color:#fffe}
+  .hero-zone{font-size:13px;line-height:1.5;max-width:480px;color:#fffbb;margin:0 0 27px}
+  .primary-cta{min-height:59px}
+  .cards-stage{height:340px;align-self:end;position:relative;margin-bottom:5px;min-width:0}
+  .cards-set{position:absolute;inset:0;display:grid;align-content:end;gap:12px;opacity:0;pointer-events:none;transform:translateX(20px);transition:opacity .4s ease,transform .45s ease}
+  .cards-set.active{opacity:1;pointer-events:auto;transform:translateX(0)}
+  .mini-card{display:grid;grid-template-columns:142px minmax(0,1fr);align-items:stretch;gap:17px;padding:12px;background:#4b4a4dc4;border:1px solid #ffffff57;border-radius:23px;backdrop-filter:blur(18px);box-shadow:0 16px 40px #09182b50;min-height:144px}
+  .mini-card:nth-child(2){background:#a7a1a0b5;transform:translateX(25px)}
+  .mini-card img{width:142px;height:124px;object-fit:cover;border-radius:15px}
+  .mini-copy{min-width:0;display:flex;flex-direction:column;justify-content:center;gap:8px}
+  .mini-copy h2{font-size:clamp(18px,1.6vw,24px);font-weight:650;letter-spacing:-.6px;line-height:1.1;margin:0}
+  .mini-copy p{font-size:13px;color:#fffd;margin:0;line-height:1.35}
+  .mini-copy strong{font-size:13px;margin-top:9px;color:white;font-weight:600}
+  .hero-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;z-index:2}
+  .pills{display:flex;gap:10px;flex-wrap:wrap}
+  .pill{color:white;border:1px solid #ffffff66;background:#ffffff0d;border-radius:90px;padding:12px 20px;min-height:47px;font-size:14px;font-weight:600;transition:background .2s}
+  .pill:hover,.pill.active{background:#ffffff37}
+  .arrows{display:flex;align-items:center;gap:10px}
+  .count{font-size:12px;letter-spacing:1px;color:#fffddd;margin-right:10px;white-space:nowrap}
+  .arrow{width:50px;height:50px;border:0;background:white;color:#1e2d3b;border-radius:50%;display:grid;place-items:center;font-size:24px;transition:transform .2s}
+  .arrow:hover{transform:scale(1.08)}
+  .disclaimer{font-size:10px;color:#ffffffb0;margin:13px 0 0;z-index:2;text-align:right}
+  @media(max-width:1200px){.hero{padding:24px 28px 22px}.hero-header{gap:10px}.hero-nav a{padding:11px}.brand-words strong{font-size:23px}.hero-main{grid-template-columns:1fr .82fr}.mini-card{grid-template-columns:115px 1fr}.mini-card img{width:115px}.hero-copy{padding-bottom:0}}
+  @media(max-width:990px){.hero-wrap{padding:12px}.hero{border-radius:25px;padding:20px;min-height:calc(100svh - 24px)}.hero-header{grid-template-columns:1fr auto}.hero-nav,.top-cta{display:none}.menu-button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:48px;height:48px;border:1px solid #fff8;background:#ffffff35;color:white;border-radius:15px}.menu-button span{width:20px;height:2px;background:white;border-radius:2px}.mobile-menu{position:absolute;z-index:10;top:82px;right:20px;left:20px;padding:13px;background:#193c61ee;backdrop-filter:blur(15px);border:1px solid #fff5;border-radius:20px;display:grid;gap:2px;box-shadow:0 16px 40px #0005}.mobile-menu a{padding:13px;border-radius:10px;font-weight:600}.mobile-menu a:hover{background:#ffffff29}.hero-main{grid-template-columns:1fr;gap:20px;padding:85px 6px 50px}.hero-copy{max-width:700px}.cards-stage{height:150px;max-width:640px;width:100%;align-self:center}.cards-set{grid-template-columns:1fr 1fr;gap:10px;align-content:stretch}.mini-card,.mini-card:nth-child(2){grid-template-columns:1fr;transform:none;padding:9px;min-height:0;gap:8px}.mini-card img{width:100%;height:80px}.mini-copy h2{font-size:16px}.mini-copy p{font-size:11px}.mini-copy strong{display:none}.hero-footer{align-items:center}.disclaimer{text-align:left}}
+  @media(max-width:560px){.hero-wrap{padding:8px}.hero{padding:16px;border-radius:23px}.brand-words strong{font-size:22px}.brand-words small{font-size:8px;letter-spacing:1.35px}.brand-icon{height:43px;width:43px;font-size:17px}.hero-main{padding:65px 1px 35px;gap:35px}.overline{font-size:10px;letter-spacing:1.1px;margin-bottom:16px}h1{font-size:clamp(38px,9.1vw,53px)}.hero-lead{font-size:15px;margin-top:20px}.hero-zone{font-size:12px}.primary-cta{min-height:54px;padding-left:20px}.cards-stage{height:162px}.mini-card{padding:9px;border-radius:16px}.mini-card img{height:83px;border-radius:10px}.mini-copy h2{font-size:13px;line-height:1.14;letter-spacing:-.2px}.mini-copy p{font-size:10px}.hero-footer{align-items:stretch;flex-direction:column;gap:15px}.pills{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}.pill{flex:none;padding:10px 15px;font-size:13px;min-height:42px}.arrows{justify-content:flex-end}.arrow{height:43px;width:43px;font-size:20px}.disclaimer{font-size:9px}}
+  @media(prefers-reduced-motion:reduce){.scene,.cards-set,.top-cta,.primary-cta,.arrow{transition:none}}
+</style>
