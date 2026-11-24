@@ -58,20 +58,14 @@ b {
 }
 
 
-/* Cada sección futura de la home se presentará como una pantalla nueva en escritorio.
-   No forzar scroll-snap en móvil, zoom o ventanas de altura reducida. */
+/* Las secciones principales pueden ajustarse por pantalla.
+   Esta fila de ventajas es una banda compacta como en la referencia,
+   por eso no debe ocupar una pantalla entera. */
 @media (min-width:991px) and (min-height:520px) {
-  html { scroll-snap-type: y mandatory; }
-  main > section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
-  main > section:not(.hero-wrap) {
-    min-height: 100vh;
-    min-height: 100dvh;
-  }
+  html { scroll-snap-type: y proximity; }
+  main > section { scroll-snap-align: start; }
+  main > section.section-screen { min-height: 100vh; min-height: 100dvh; }
 }
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
