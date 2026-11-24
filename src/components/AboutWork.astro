@@ -1,0 +1,291 @@
+---
+/**
+ * Fotografías de muestra de Pexels: no representan obras del taller.
+ * Sustituir por fotos reales cuando el cliente facilite sus originales.
+ */
+const workCards = [
+  {
+    title: 'Tu idea y presupuesto',
+    description: '¿Necesitas una puerta, una reja o un trabajo diferente? Cuéntanos qué tienes en mente y lo valoramos.',
+    photo: 'https://images.pexels.com/photos/14355575/pexels-photo-14355575.jpeg?auto=compress&cs=tinysrgb&w=760',
+    alt: 'Cancela de hierro en la entrada de una vivienda, fotografía ilustrativa de banco de imágenes',
+    icon: 'chat'
+  },
+  {
+    title: 'Experiencia en hierro',
+    description: 'Muchos años de oficio trabajando el hierro, la forja y la soldadura para soluciones que se usan a diario.',
+    photo: 'https://images.pexels.com/photos/19962638/pexels-photo-19962638.jpeg?auto=compress&cs=tinysrgb&w=760',
+    alt: 'Reja decorativa de hierro en una ventana, fotografía ilustrativa de banco de imágenes',
+    icon: 'shield'
+  },
+  {
+    title: 'Trabajos a medida',
+    description: 'Adaptamos puertas, barandas, cubiertas y estructuras metálicas a las medidas y necesidades de cada espacio.',
+    photo: 'https://images.pexels.com/photos/26872298/pexels-photo-26872298.jpeg?auto=compress&cs=tinysrgb&w=760',
+    alt: 'Estructura metálica de un tejado, fotografía ilustrativa de banco de imágenes',
+    icon: 'check'
+  },
+  {
+    title: 'Soldadura y arreglos',
+    description: 'Además de fabricar, realizamos reparaciones y encargos de hierro para viviendas, fincas y naves.',
+    photo: 'https://images.pexels.com/photos/15016479/pexels-photo-15016479.jpeg?auto=compress&cs=tinysrgb&w=760',
+    alt: 'Profesional soldando una pieza metálica, fotografía ilustrativa de banco de imágenes',
+    icon: 'tool'
+  }
+];
+---
+
+<section class="about-work" id="oficio" aria-labelledby="about-work-title">
+  <div class="about-inner">
+    <div class="section-intro">
+      <div class="intro-heading">
+        <p class="section-kicker"><span aria-hidden="true"></span> NUESTRO OFICIO</p>
+        <h2 id="about-work-title">Lo que importa en un<br class="wide-only" /> buen trabajo de hierro</h2>
+      </div>
+      <p class="intro-description">
+        En Carpintería Metálica Juan Gamero hacemos trabajos de hierro a medida para viviendas, patios, fincas y naves: desde rejas y puertas hasta tejados de chapa, barandas, estructuras y arreglos. Estamos en Casariche y trabajamos también por los pueblos cercanos.
+      </p>
+    </div>
+
+    <div class="work-cards" aria-label="Cómo trabajamos y qué podemos hacer">
+      {workCards.map((card, index) => (
+        <article class="work-card">
+          <img
+            class="work-photo"
+            src={card.photo}
+            alt={card.alt}
+            loading="lazy"
+            decoding="async"
+            width="760"
+            height="950"
+          />
+          <div class="work-shade" aria-hidden="true"></div>
+          <div class="card-content">
+            <div class="card-icon" aria-hidden="true">
+              {card.icon === 'chat' && (
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 12a17 17 0 0 1 28 19c-4 5-12 7-19 5l-9 4 2-9A17 17 0 0 1 10 12Z"/>
+                  <circle cx="18" cy="24" r="1.3"/><circle cx="24" cy="24" r="1.3"/><circle cx="30" cy="24" r="1.3"/>
+                </svg>
+              )}
+              {card.icon === 'shield' && (
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M24 4 40 10v12c0 10-7 18-16 22C15 40 8 32 8 22V10L24 4Z"/>
+                  <path d="m16 24 5 5 11-12"/>
+                </svg>
+              )}
+              {card.icon === 'check' && (
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="24" cy="24" r="18"/><path d="m15 24 6 6 13-14"/>
+                </svg>
+              )}
+              {card.icon === 'tool' && (
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M37 9a12 12 0 0 0-15 15L8 38a5 5 0 0 0 7 7l14-14A12 12 0 0 0 44 16l-7 7-10-2-2-10 7-7"/>
+                </svg>
+              )}
+            </div>
+            <div class="card-copy">
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="photo-caption">Imágenes ilustrativas de banco de fotografías. No muestran trabajos realizados por el taller.</p>
+  </div>
+</section>
+
+<style>
+  .about-work {
+    --about-ink: #18221d;
+    min-height: 100svh;
+    background: #fff;
+    color: var(--about-ink);
+    padding: clamp(93px, 11vh, 112px) clamp(24px, 2.2vw, 45px) clamp(35px, 5vh, 60px);
+    scroll-margin-top: 0;
+  }
+  .about-inner {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  .section-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: clamp(30px, 6.2vw, 110px);
+    align-items: center;
+  }
+  .section-kicker {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin: 0 0 17px;
+    color: #28362e;
+    font-size: 13px;
+    font-weight: 750;
+    letter-spacing: .025em;
+    line-height: 1.3;
+  }
+  .section-kicker span {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #526c60;
+    flex: none;
+  }
+  .intro-heading h2 {
+    max-width: 710px;
+    margin: 0;
+    color: #151d18;
+    font-family: inherit;
+    font-size: clamp(34px, 3.6vw, 58px);
+    line-height: 1.12;
+    font-weight: 640;
+    letter-spacing: -.058em;
+  }
+  .intro-description {
+    max-width: 680px;
+    margin: 21px 0 0;
+    color: #26302a;
+    font-size: clamp(14px, 1.12vw, 17px);
+    font-weight: 520;
+    line-height: 1.55;
+    letter-spacing: -.016em;
+  }
+  .work-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(14px, 1.8vw, 28px);
+    margin-top: clamp(39px, 5.1vh, 60px);
+  }
+  .work-card {
+    position: relative;
+    isolation: isolate;
+    height: clamp(315px, 47vh, 455px);
+    min-height: 315px;
+    overflow: hidden;
+    border-radius: 19px;
+    background: #303a33;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.045);
+  }
+  .work-photo, .work-shade {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .work-photo {
+    z-index: -2;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(.74) contrast(.98);
+    transform: scale(1.005);
+    transition: transform .85s cubic-bezier(.2,.72,.2,1), filter .7s ease;
+  }
+  .work-card:nth-child(2) .work-photo { object-position: 48% center; }
+  .work-card:nth-child(3) .work-photo { object-position: center 44%; }
+  .work-card:nth-child(4) .work-photo { object-position: 47% center; }
+  .work-shade {
+    z-index: -1;
+    background: linear-gradient(180deg,
+      rgba(15,18,16,.03) 0%,
+      rgba(15,18,16,.22) 27%,
+      rgba(12,14,13,.75) 59%,
+      rgba(10,12,11,.97) 100%);
+    transition: opacity .5s ease;
+  }
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    padding: clamp(19px, 1.9vw, 31px);
+    gap: 20px;
+  }
+  .card-icon {
+    display: grid;
+    place-items: center;
+    width: clamp(53px, 4.2vw, 72px);
+    height: clamp(53px, 4.2vw, 72px);
+    flex: none;
+    border-radius: 16px;
+    background: #fff;
+    color: #61726a;
+    box-shadow: 0 8px 22px rgba(0,0,0,.12);
+    transition: transform .4s cubic-bezier(.18,.82,.2,1);
+  }
+  .card-icon svg { width: 65%; height: 65%; }
+  .card-copy h3 {
+    margin: 0 0 13px;
+    font-family: inherit;
+    font-size: clamp(21px, 1.65vw, 29px);
+    font-weight: 650;
+    line-height: 1.09;
+    letter-spacing: -.045em;
+    text-wrap: balance;
+  }
+  .card-copy p {
+    margin: 0;
+    max-width: 350px;
+    color: rgba(255,255,255,.92);
+    font-size: clamp(12px, 1.02vw, 15px);
+    font-weight: 460;
+    line-height: 1.5;
+  }
+  .work-card:hover .work-photo { transform: scale(1.07); filter: saturate(.85) contrast(1.04); }
+  .work-card:hover .card-icon { transform: translateY(-5px) rotate(-4deg); }
+  .photo-caption {
+    margin: 15px 0 0;
+    color: #767e77;
+    text-align: right;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+  @media (min-width: 1001px) and (max-height: 720px) {
+    .about-work { padding-top: 86px; padding-bottom: 26px; }
+    .intro-heading h2 { font-size: clamp(31px, 3.1vw, 49px); }
+    .section-kicker { margin-bottom: 11px; }
+    .intro-description { margin-top: 13px; }
+    .work-cards { margin-top: 28px; }
+    .work-card { height: clamp(290px, 45vh, 370px); min-height: 290px; }
+    .card-content { gap: 12px; }
+  }
+  @media (max-width: 1100px) {
+    .section-intro { gap: 30px; }
+    .work-cards { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .work-card { height: clamp(300px, 44vw, 405px); }
+    .card-copy h3 { font-size: clamp(22px, 2.5vw, 27px); }
+    .card-copy p { font-size: 14px; }
+  }
+  @media (max-width: 700px) {
+    .about-work { padding: 91px 19px 40px; min-height: 0; }
+    .section-intro { grid-template-columns: 1fr; gap: 12px; }
+    .section-kicker { margin-bottom: 16px; }
+    .intro-heading h2 { font-size: clamp(32px, 7.8vw, 44px); }
+    .wide-only { display: none; }
+    .intro-description { margin: 0; font-size: 14px; line-height: 1.6; }
+    .work-cards { gap: 13px; margin-top: 32px; }
+    .work-card { height: 350px; min-height: 0; }
+    .card-content { padding: 19px; }
+    .card-icon { width: 54px; height: 54px; border-radius: 13px; }
+    .card-copy h3 { font-size: 22px; }
+    .card-copy p { font-size: 13px; }
+    .photo-caption { font-size: 10px; text-align: left; }
+  }
+  @media (max-width: 530px) {
+    .work-cards { grid-template-columns: 1fr; }
+    .work-card { height: 350px; }
+    .card-content { padding: 25px; gap: 20px; }
+    .card-copy h3 { font-size: 26px; }
+    .card-copy p { font-size: 14px; max-width: 330px; }
+    .card-icon { width: 61px; height: 61px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .work-photo, .card-icon, .work-shade { transition: none; }
+    .work-card:hover .work-photo, .work-card:hover .card-icon { transform: none; }
+  }
+</style>
