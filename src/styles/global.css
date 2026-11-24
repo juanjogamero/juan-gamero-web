@@ -1,4 +1,15 @@
-/* Base neutra: los estilos visuales se añadirán al diseñar las secciones. */
+/* Identidad tipográfica de toda la web:
+   Manrope, sans serif geométrica inspirada en la referencia visual Vistara.
+   Todo componente nuevo debe heredar estas variables globales. */
+:root {
+  --font-family-site: 'Manrope', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+}
+
 *,
 *::before,
 *::after {
@@ -7,12 +18,41 @@
 
 html {
   min-width: 320px;
+  font-family: var(--font-family-site);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, sans-serif;
-  background: #fff;
+  font-family: var(--font-family-site);
+  font-weight: var(--font-weight-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background: #e9e7e3;
   color: #222;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.035em;
+}
+
+strong,
+b {
+  font-weight: var(--font-weight-bold);
 }
