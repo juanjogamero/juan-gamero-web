@@ -1,11 +1,11 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
 
-import tailwindcss from '@tailwindcss/vite';
+const githubPages = process.env.DEPLOY_TARGET === 'github';
 
-// https://astro.build/config
 export default defineConfig({
-  vite: {
-    plugins: [tailwindcss()]
-  }
+  output: 'static',
+  site: githubPages
+    ? 'https://juanjogamero.github.io'
+    : 'https://metalicasgamero.es',
+  base: githubPages ? '/juan-gamero-web/' : '/',
 });

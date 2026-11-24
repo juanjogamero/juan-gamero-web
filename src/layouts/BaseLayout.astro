@@ -1,0 +1,29 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Carpintería Metálica Juan Gamero',
+  description = 'Carpintería metálica y trabajos de hierro a medida en Casariche y alrededores.'
+} = Astro.props;
+
+const isProduction = import.meta.env.PUBLIC_SITE_STAGE === 'production';
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content={description} />
+    {!isProduction && <meta name="robots" content="noindex, nofollow" />}
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

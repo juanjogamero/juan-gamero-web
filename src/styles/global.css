@@ -1,27 +1,18 @@
-@import "tailwindcss";
-
-@theme {
-  --font-sans: 'Inter', sans-serif;
-  --font-serif: 'Karma', serif;
+/* Base neutra: los estilos visuales se añadirán al diseñar las secciones. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* --- ANIMACIONES SCROLL CONTINUO (ORGÁNICAS Y SUAVES) --- */
-
-/* Unificamos el comportamiento para que sea ultra-suave y no fuerce al navegador */
-.reveal-text, .reveal-card {
-  opacity: 0;
-  /* Reducimos el salto a solo 30px (antes era 40px o 60px) */
-  transform: translateY(30px); 
-  /* Usamos una curva easeOutQuint súper elegante y un poco más lenta (1.2s) */
-  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+html {
+  min-width: 320px;
 }
 
-.reveal-text.active, .reveal-card.active {
-  opacity: 1;
-  transform: translateY(0);
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, sans-serif;
+  background: #fff;
+  color: #222;
 }
-
-/* Retrasos para crear el efecto cascada */
-.delay-100 { transition-delay: 100ms; }
-.delay-200 { transition-delay: 200ms; }
-.delay-300 { transition-delay: 300ms; }
