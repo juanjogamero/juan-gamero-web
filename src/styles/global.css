@@ -56,3 +56,22 @@ strong,
 b {
   font-weight: var(--font-weight-bold);
 }
+
+
+/* Cada sección futura de la home se presentará como una pantalla nueva en escritorio.
+   No forzar scroll-snap en móvil, zoom o ventanas de altura reducida. */
+@media (min-width:991px) and (min-height:520px) {
+  html { scroll-snap-type: y mandatory; }
+  main > section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  main > section:not(.hero-wrap) {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

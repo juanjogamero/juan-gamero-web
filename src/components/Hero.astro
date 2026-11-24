@@ -204,4 +204,114 @@ const slides = [
   @media(max-width:990px){.hero-wrap{padding:12px}.hero{border-radius:25px;padding:20px;min-height:calc(100svh - 24px)}.hero-header{grid-template-columns:1fr auto}.hero-nav,.top-cta{display:none}.menu-button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:48px;height:48px;border:1px solid #fff8;background:#ffffff35;color:white;border-radius:15px}.menu-button span{width:20px;height:2px;background:white;border-radius:2px}.mobile-menu{position:absolute;z-index:10;top:82px;right:20px;left:20px;padding:13px;background:#202020f5;backdrop-filter:blur(15px);border:1px solid #fff5;border-radius:20px;display:grid;gap:2px;box-shadow:0 16px 40px #0005}.mobile-menu a{padding:13px;border-radius:10px;font-weight:600}.mobile-menu a:hover{background:#ffffff29}.hero-main{grid-template-columns:1fr;gap:20px;padding:85px 6px 50px}.hero-copy{max-width:700px}.cards-stage{height:150px;max-width:640px;width:100%;align-self:center}.cards-set{grid-template-columns:1fr 1fr;gap:10px;align-content:stretch}.mini-card,.mini-card:nth-child(2){grid-template-columns:1fr;transform:none;padding:9px;min-height:0;gap:8px}.mini-card img{width:100%;height:80px}.mini-copy h2{font-size:16px}.mini-copy p{font-size:11px}.mini-copy strong{display:none}.hero-footer{align-items:center}.disclaimer{text-align:left}}
   @media(max-width:560px){.hero-wrap{padding:8px}.hero{padding:16px;border-radius:23px}.brand-words strong{font-size:22px}.brand-words small{font-size:8px;letter-spacing:1.35px}.brand-icon{height:43px;width:43px;font-size:17px}.hero-main{padding:65px 1px 35px;gap:35px}.overline{font-size:10px;letter-spacing:1.1px;margin-bottom:16px}h1{font-size:clamp(38px,9.1vw,53px)}.hero-lead{font-size:15px;margin-top:20px}.hero-zone{font-size:12px}.primary-cta{min-height:54px;padding-left:20px}.cards-stage{height:162px}.mini-card{padding:9px;border-radius:16px}.mini-card img{height:83px;border-radius:10px}.mini-copy h2{font-size:13px;line-height:1.14;letter-spacing:-.2px}.mini-copy p{font-size:10px}.hero-footer{align-items:stretch;flex-direction:column;gap:15px}.pills{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}.pill{flex:none;padding:10px 15px;font-size:13px;min-height:42px}.arrows{justify-content:flex-end}.arrow{height:43px;width:43px;font-size:20px}.disclaimer{font-size:9px}}
   @media(prefers-reduced-motion:reduce){.scene,.cards-set,.top-cta,.primary-cta,.arrow{transition:none}}
+
+  /* Portátil / escritorio: el hero entero cabe en una sola pantalla.
+     El espacio se reparte entre cabecera, contenido y controles, sin cortes. */
+  @media (min-width:991px) {
+    .hero-wrap {
+      height: 100vh;
+      height: 100dvh;
+      min-height: 0;
+      padding: clamp(8px,1.5vh,16px);
+      overflow: hidden;
+    }
+    .hero {
+      height: 100%;
+      min-height: 0;
+      padding: clamp(12px,2.2vh,25px) clamp(20px,3vw,44px) clamp(10px,1.7vh,20px);
+      border-radius: clamp(20px,2.2vw,32px);
+    }
+    .hero-header { flex: 0 0 auto; }
+    .hero-main {
+      flex: 1 1 auto;
+      min-height: 0;
+      grid-template-columns: minmax(0,1.16fr) minmax(0,.84fr);
+      gap: clamp(14px,2vw,32px);
+      align-items: center;
+      padding: clamp(5px,1.3vh,17px) 7px;
+    }
+    .hero-copy {
+      padding-bottom: 0;
+      max-width: 100%;
+      align-self: center;
+    }
+    .overline {
+      margin-bottom: clamp(8px,1.5vh,16px);
+      font-size: clamp(9px,1.1vw,12px);
+    }
+    h1 {
+      font-size: clamp(35px,min(5.1vw,7.8vh),70px);
+      line-height: 1.035;
+      max-width: 100%;
+    }
+    .hero-lead {
+      margin: clamp(9px,2vh,20px) 0 6px;
+      font-size: clamp(13px,min(1.4vw,2.25vh),19px);
+      line-height: 1.38;
+      max-width: 510px;
+    }
+    .hero-zone {
+      margin-bottom: clamp(12px,2.5vh,23px);
+      font-size: clamp(10px,1.1vw,12px);
+      line-height: 1.4;
+    }
+    .primary-cta {
+      min-height: clamp(43px,7vh,57px);
+      padding: 7px 8px 7px 20px;
+    }
+    .cards-stage {
+      width: 100%;
+      min-height: 0;
+      height: clamp(214px,42vh,308px);
+      align-self: center;
+      margin-bottom: 0;
+    }
+    .cards-set {
+      align-content: center;
+      gap: clamp(8px,1.3vh,13px);
+    }
+    .mini-card {
+      min-height: 0;
+      height: clamp(102px,19vh,139px);
+      grid-template-columns: clamp(86px,10vw,136px) minmax(0,1fr);
+      gap: clamp(8px,1vw,15px);
+      padding: clamp(7px,1vh,11px);
+      border-radius: 19px;
+    }
+    .mini-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      border-radius: 12px;
+    }
+    .mini-copy { gap: clamp(3px,.8vh,8px); }
+    .mini-copy h2 { font-size: clamp(15px,1.55vw,22px); }
+    .mini-copy p, .mini-copy strong { font-size: clamp(10px,1vw,13px); }
+    .mini-copy strong { margin-top: clamp(3px,.7vh,8px); }
+    .hero-footer { flex: 0 0 auto; }
+    .pill {
+      padding: clamp(8px,1.25vh,11px) clamp(13px,1.45vw,19px);
+      min-height: 40px;
+    }
+    .arrow {
+      width: clamp(40px,5.7vh,48px);
+      height: clamp(40px,5.7vh,48px);
+    }
+    .disclaimer {
+      flex: 0 0 auto;
+      margin-top: clamp(4px,.8vh,10px);
+      font-size: 9px;
+    }
+  }
+  @media (min-width:991px) and (max-height:620px) {
+    .hero-nav a { padding: 10px 12px; }
+    .hero-main { padding-top: 2px; padding-bottom: 2px; }
+    h1 { font-size: clamp(34px,min(4.75vw,7.2vh),58px); }
+    .hero-lead { margin-top: 8px; font-size: 13px; }
+    .hero-zone { margin-bottom: 10px; }
+    .cards-stage { height: clamp(204px,40vh,250px); }
+    .mini-card { height: clamp(98px,17vh,116px); }
+  }
+  /* Pantallas táctiles: se conserva el flujo vertical natural.
+     Solo los ordenadores usan secciones a pantalla completa. */
 </style>
